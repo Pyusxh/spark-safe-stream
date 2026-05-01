@@ -29,14 +29,18 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "IoT based power theft detector" },
+      { name: "description", content: "Take absolute control over your electrical grid with [Insert App Name], the ultimate IoT power monitoring and theft prevention ecosystem." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "IoT based power theft detector" },
+      { property: "og:description", content: "Take absolute control over your electrical grid with [Insert App Name], the ultimate IoT power monitoring and theft prevention ecosystem." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "IoT based power theft detector" },
+      { name: "twitter:description", content: "Take absolute control over your electrical grid with [Insert App Name], the ultimate IoT power monitoring and theft prevention ecosystem." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/0b5c7c9f-f493-47fc-a831-94b6c2e53b2b" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/0b5c7c9f-f493-47fc-a831-94b6c2e53b2b" },
     ],
     links: [
       {
