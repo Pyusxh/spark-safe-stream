@@ -14,7 +14,33 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      power_logs: {
+        Row: {
+          created_at: string
+          difference: number
+          id: string
+          load_current: number
+          main_current: number
+          theft_active: boolean
+        }
+        Insert: {
+          created_at?: string
+          difference?: number
+          id?: string
+          load_current?: number
+          main_current?: number
+          theft_active?: boolean
+        }
+        Update: {
+          created_at?: string
+          difference?: number
+          id?: string
+          load_current?: number
+          main_current?: number
+          theft_active?: boolean
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
