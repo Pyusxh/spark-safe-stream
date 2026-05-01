@@ -8,6 +8,7 @@ import { MetricCard } from "@/components/MetricCard";
 import { UsageChart } from "@/components/UsageChart";
 import { TheftChart } from "@/components/TheftChart";
 import { SimulatorBar } from "@/components/SimulatorBar";
+import { KillSwitch } from "@/components/KillSwitch";
 
 export const Route = createFileRoute("/")({
   component: Dashboard,
@@ -28,6 +29,8 @@ const MAX_POINTS = 60;
 function Dashboard() {
   const [logs, setLogs] = useState<PowerLog[]>([]);
   const [lastUpdate, setLastUpdate] = useState<Date | null>(null);
+  const [manualCutoff, setManualCutoff] = useState(false);
+  const [controlId, setControlId] = useState<string | null>(null);
 
   useEffect(() => {
     let mounted = true;
@@ -41,6 +44,17 @@ function Dashboard() {
       if (mounted && data) {
         setLogs((data as PowerLog[]).slice().reverse());
         if (data.length) setLastUpdate(new Date());
+      }
+
+      const { data: ctrl } = await supabase
+        .from("device_control")
+        .select("*")
+        .order("updated_at", { ascending: false })
+        .limit(1)
+        .maybeSingle();
+      if (mounted && ctrl) {
+        setControlId(ctrl.id);
+        setManualCutoff(ctrl.manual_cutoff);
       }
     })();
 
@@ -56,6 +70,17 @@ function Dashboard() {
             return next.length > MAX_POINTS ? next.slice(next.length - MAX_POINTS) : next;
           });
           setLastUpdate(new Date());
+        },
+      )
+      .on(
+        "postgres_changes",
+        { event: "*", schema: "public", table: "device_control" },
+        (payload) => {
+          const row = payload.new as { id: string; manual_cutoff: boolean };
+          if (row?.id) {
+            setControlId(row.id);
+            setManualCutoff(row.manual_cutoff);
+          }
         },
       )
       .subscribe();
@@ -75,7 +100,13 @@ function Dashboard() {
   return (
     <main className="min-h-screen px-4 py-6 sm:px-8 sm:py-10">
       <div className="mx-auto flex max-w-7xl flex-col gap-6">
-        <StatusHeader theftActive={theftActive} lastUpdate={lastUpdate} />
+        <StatusHeader
+          theftActive={theftActive}
+          manualCutoff={manualCutoff}
+          lastUpdate={lastUpdate}
+        />
+
+        <KillSwitch active={manualCutoff} controlId={controlId} />
 
         <SimulatorBar />
 
