@@ -14,6 +14,24 @@ export type Database = {
   }
   public: {
     Tables: {
+      device_control: {
+        Row: {
+          id: string
+          manual_cutoff: boolean
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          manual_cutoff?: boolean
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          manual_cutoff?: boolean
+          updated_at?: string
+        }
+        Relationships: []
+      }
       power_logs: {
         Row: {
           created_at: string
