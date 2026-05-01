@@ -9,6 +9,9 @@ import { UsageChart } from "@/components/UsageChart";
 import { TheftChart } from "@/components/TheftChart";
 import { SimulatorBar } from "@/components/SimulatorBar";
 import { KillSwitch } from "@/components/KillSwitch";
+import { FinancialImpactCard } from "@/components/FinancialImpactCard";
+import { AIHealthCard } from "@/components/AIHealthCard";
+import { ExportButton } from "@/components/ExportButton";
 
 export const Route = createFileRoute("/")({
   component: Dashboard,
@@ -100,46 +103,70 @@ function Dashboard() {
   return (
     <main className="min-h-screen px-4 py-6 sm:px-8 sm:py-10">
       <div className="mx-auto flex max-w-7xl flex-col gap-6">
-        <StatusHeader
-          theftActive={theftActive}
-          manualCutoff={manualCutoff}
-          lastUpdate={lastUpdate}
-        />
+        <div className="flex flex-col gap-4">
+          <StatusHeader
+            theftActive={theftActive}
+            manualCutoff={manualCutoff}
+            lastUpdate={lastUpdate}
+          />
+          <div className="flex justify-end">
+            <ExportButton data={logs} />
+          </div>
+        </div>
 
         <KillSwitch active={manualCutoff} controlId={controlId} />
 
         <SimulatorBar />
 
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-          <MetricCard
-            label="Main Current"
-            value={mainCurrent}
-            unit="A"
-            icon={Zap}
-            variant="blue"
-            alert
-          />
-          <MetricCard
-            label="House Load"
-            value={loadCurrent}
-            unit="A"
-            icon={Home}
-            variant="green"
-            alert
-          />
-          <MetricCard
-            label="Leakage / Δ"
-            value={difference}
-            unit="A"
-            icon={AlertOctagon}
-            variant="red"
-            alert={theftActive}
-          />
-        </div>
+        {/* Bento grid: 6 columns on desktop, asymmetric */}
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-6">
+          {/* Row 1: 3 metric cards (2 cols each) */}
+          <div className="lg:col-span-2">
+            <MetricCard
+              label="Main Current"
+              value={mainCurrent}
+              unit="A"
+              icon={Zap}
+              variant="blue"
+              alert
+            />
+          </div>
+          <div className="lg:col-span-2">
+            <MetricCard
+              label="House Load"
+              value={loadCurrent}
+              unit="A"
+              icon={Home}
+              variant="green"
+              alert
+            />
+          </div>
+          <div className="lg:col-span-2">
+            <MetricCard
+              label="Leakage / Δ"
+              value={difference}
+              unit="A"
+              icon={AlertOctagon}
+              variant="red"
+              alert={theftActive}
+            />
+          </div>
 
-        <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-          <UsageChart data={logs} />
-          <TheftChart data={logs} />
+          {/* Row 2: Financial (4 cols) + AI Health (2 cols) */}
+          <div className="lg:col-span-4">
+            <FinancialImpactCard difference={difference} active={theftActive} />
+          </div>
+          <div className="lg:col-span-2">
+            <AIHealthCard />
+          </div>
+
+          {/* Row 3: Two large charts (3 cols each) */}
+          <div className="lg:col-span-3">
+            <UsageChart data={logs} />
+          </div>
+          <div className="lg:col-span-3">
+            <TheftChart data={logs} />
+          </div>
         </div>
 
         <footer className="pt-4 text-center text-[10px] font-mono uppercase tracking-widest text-muted-foreground">
