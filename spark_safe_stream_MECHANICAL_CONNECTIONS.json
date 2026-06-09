@@ -1,0 +1,147 @@
+[
+  {
+    "label": "M3 screws and nuts",
+    "source": "tower_a_base_plate",
+    "target": "tower_a_vertical_support_front"
+  },
+  {
+    "label": "M3 screws and nuts",
+    "source": "tower_a_base_plate",
+    "target": "tower_a_vertical_support_back"
+  },
+  {
+    "label": "M3 screws and nuts",
+    "source": "tower_b_base_plate",
+    "target": "tower_b_vertical_support_front"
+  },
+  {
+    "label": "M3 screws and nuts",
+    "source": "tower_b_base_plate",
+    "target": "tower_b_vertical_support_back"
+  },
+  {
+    "label": "M3 screws",
+    "source": "tower_a_vertical_support_front",
+    "target": "esp32_grid_mount"
+  },
+  {
+    "label": "M3 screws",
+    "source": "tower_a_vertical_support_front",
+    "target": "acs712_grid_mount"
+  },
+  {
+    "label": "M3 screws",
+    "source": "tower_a_vertical_support_front",
+    "target": "relay_power_cut_mount"
+  },
+  {
+    "label": "M3 screws",
+    "source": "tower_a_vertical_support_front",
+    "target": "lcd_display_bezel"
+  },
+  {
+    "label": "M3 screws",
+    "source": "tower_a_vertical_support_front",
+    "target": "buzzer_alarm_mount"
+  },
+  {
+    "label": "M3 screws",
+    "source": "tower_a_vertical_support_back",
+    "target": "dc_power_supply_mount"
+  },
+  {
+    "label": "M3 screws",
+    "source": "tower_b_vertical_support_front",
+    "target": "esp32_house_mount"
+  },
+  {
+    "label": "M3 screws",
+    "source": "tower_b_vertical_support_front",
+    "target": "acs712_house_mount"
+  },
+  {
+    "label": "M3 screws",
+    "source": "tower_b_vertical_support_front",
+    "target": "bulb_holder_authorized"
+  },
+  {
+    "label": "M3 screws",
+    "source": "bypass_enclosure",
+    "target": "bypass_switch_mount"
+  },
+  {
+    "label": "M3 screws",
+    "source": "bypass_enclosure",
+    "target": "bulb_holder_bypass"
+  },
+  {
+    "label": "mount",
+    "source": "esp32_grid_mount",
+    "target": "esp32_grid_controller"
+  },
+  {
+    "label": "mount",
+    "source": "esp32_house_mount",
+    "target": "esp32_house_monitor"
+  },
+  {
+    "label": "mount",
+    "source": "acs712_grid_mount",
+    "target": "acs712_grid_sensor"
+  },
+  {
+    "label": "mount",
+    "source": "acs712_house_mount",
+    "target": "acs712_house_sensor"
+  },
+  {
+    "label": "mount",
+    "source": "relay_power_cut_mount",
+    "target": "relay_power_cut"
+  },
+  {
+    "label": "mount",
+    "source": "lcd_display_bezel",
+    "target": "lcd_display"
+  },
+  {
+    "label": "mount",
+    "source": "buzzer_alarm_mount",
+    "target": "buzzer_alarm"
+  },
+  {
+    "label": "mount",
+    "source": "dc_power_supply_mount",
+    "target": "dc_power_supply"
+  },
+  {
+    "label": "mount",
+    "source": "bypass_switch_mount",
+    "target": "bypass_switch"
+  },
+  {
+    "source": "tower_a_base_plate",
+    "target": "ac_input_terminal",
+    "label": "M3 screws"
+  },
+  {
+    "source": "tower_b_vertical_support_front",
+    "target": "bulb_holder_authorized",
+    "label": "M3 screws"
+  },
+  {
+    "source": "bypass_enclosure",
+    "target": "bulb_holder_bypass",
+    "label": "M3 screws"
+  },
+  {
+    "source": "bulb_holder_authorized",
+    "target": "bulb_ac_authorized",
+    "label": "screw in"
+  },
+  {
+    "source": "bulb_holder_bypass",
+    "target": "bulb_ac_bypass",
+    "label": "screw in"
+  }
+]

@@ -1,0 +1,2296 @@
+{
+  "plan": "- Microcontrollers: 2x ESP32 boards for processing and IoT connectivity.\n- Sensors: 2x ACS712 current sensors (e.g., 20A or 30A module) for grid and house monitoring.\n- Actuators/Outputs: 1x Single-channel relay module (e.g., 5V, 10A/250VAC) for power cutoff, 1x small buzzer for audible alert, 1x 16x2 or 20x4 LCD display for visual feedback.\n- Loads/Simulators: 2x Yellow 100-watt incandescent bulbs (one for authorized load, one for bypass theft simulation).\n- Power Supply: Appropriate 5V DC power supply for ESP32s and sensors, wiring for mains voltage handling (e.g., terminal blocks, insulated wires).\n- Mechanical/Structural: Two tower structures (e.g., acrylic, wood, or aluminum profiles) to represent grid and house, small enclosure for bypass switch.",
+  "nodes": [
+    {
+      "id": "esp32_grid_controller",
+      "name": "Grid Controller ESP32",
+      "pins": [
+        "GPIO2",
+        "GPIO4",
+        "GPIO5",
+        "GPIO16",
+        "GPIO17",
+        "GPIO18",
+        "GPIO19",
+        "GPIO21",
+        "GPIO22",
+        "GPIO23",
+        "GPIO25",
+        "GPIO26",
+        "GPIO27",
+        "ADC_CH0",
+        "ADC_CH1",
+        "ADC_CH2",
+        "ADC_CH3",
+        "ADC_CH4",
+        "ADC_CH5",
+        "ADC_CH6",
+        "ADC_CH7",
+        "TX",
+        "RX",
+        "SDA",
+        "SCL",
+        "3V3",
+        "5V",
+        "GND"
+      ],
+      "type": "mcu",
+      "partId": "abab37bb-d5cc-4e9b-99cb-fdb29eb128c9",
+      "ebayUrl": "https://www.ebay.com/sch/i.html?_nkw=ESP32-WROOM-32D+Development+Board&_sacat=0&_from=R40&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339153059&customid=blueprint&toolid=10001&mkevt=1",
+      "category": "electrical",
+      "imageUrl": "https://m.media-amazon.com/images/I/51z9NSjgtEL._SL500_.jpg",
+      "quantity": 1,
+      "research": {
+        "specs": [
+          {
+            "label": "Type",
+            "value": "Transceiver; 802.11 b/g/n (Wi-Fi, WiFi, WLAN), Bluetooth® Smart Ready 4.x Dual Mode (BLE)"
+          },
+          {
+            "label": "pins",
+            "value": "GPIO16,GPIO17,GPIO18,GPIO19,GPIO21,GPIO22,GPIO23,GPIO25,GPIO26,GPIO27,3V3,5V,GND"
+          },
+          {
+            "label": "Contents",
+            "value": "Board(s)"
+          },
+          {
+            "label": "Frequency",
+            "value": "2.4GHz"
+          },
+          {
+            "label": "Antenna Type",
+            "value": "-"
+          },
+          {
+            "label": "Utilized IC / Part",
+            "value": "ESP-WROOM-32"
+          }
+        ],
+        "sourcing": [
+          {
+            "url": "https://www.adafruit.com/product/5029",
+            "price": "$18.5",
+            "vendor": "Adafruit"
+          },
+          {
+            "url": "https://www.digikey.com/en/products/detail/espressif-systems/ESP32-DEVKITC-32D/9356990",
+            "price": "$15",
+            "vendor": "DigiKey"
+          },
+          {
+            "url": "https://www.amazon.com/dp/B08D5ZD528?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "price": "$16.79",
+            "vendor": "Amazon"
+          },
+          {
+            "url": "https://www.aliexpress.com/item/1005007096886808.html?pdp_npi=6%40dis%21USD%2111.25%215.62%21%21%2176.30%2138.15%21%40214114e317793253327663220e1277%2112000057697399037%21affd%21%21%21%211%210%21",
+            "price": "$5.62",
+            "vendor": "AliExpress"
+          },
+          {
+            "url": "https://www.amazon.com/dp/B0CR5Y2JVD?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "price": "$16.59",
+            "vendor": "Amazon"
+          }
+        ],
+        "datasheetUrl": "https://www.espressif.com/sites/default/files/documentation/esp32-wroom-32d_esp32-wroom-32u_datasheet_en.pdf"
+      },
+      "amazonUrl": "https://www.amazon.com/dp/B08D5ZD528?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+      "dimensions": "55x28x13mm",
+      "description": "EVAL BOARD FOR ESP-WROOM-32",
+      "productName": "ESP32-WROOM-32D Development Board",
+      "purchaseUrl": "https://www.digikey.com/en/products/detail/espressif-systems/ESP32-DEVKITC-32D/9356990",
+      "aliexpressUrl": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxR6vbyXY2ppL9ObRmYh4w4AK032f6bBm9NDrp62dnlrDQlnlop8wQc5bP4qXfeJ276Yek60BQaZDYxId5Ukphk7sJJODgS1isRhZwKXDxwwiDFyENTPU35PqQK8lkODm1HaTad4RY4cP1wl45WTeh4RlPsVUHy4VlZIc1wB2PtjlQuLRD9hen7MaRbZW4t6zXUfC9bGHFbOF2gFiVJefzCXxYaTVzAVLAUvLSHkbqyQnqrFk1uqwOrOEbNP1LnoiHms9bNBTW9BnmuZ44dVxgrvfnPRrtF1DzjkV2MH7aZGrCLMYBexygMLfan7wIJiUJp4eIOAU63ETQxHQnhQQvMDIqXUQpIHv7ZeJ0RbYR4h6ZSCgjbqlf53uzTimPSlFbe9eC1rCOfbX7oPNipLwACODeOTiaCIO3enuw0oxwosWlviDGwFcQqVRTXhsNeyocPqKgRBrbSMdVuP2Ge1Q2IaEEkhh50Eg8BKvlCGSy32SrGjbmQcul0fMiQX1jWAuMkblVsvgxVG3UGecyBxwSKIQHPNhkDKAt2fnBrwReTsvwTT4maM3YA81857bt5dxvTzGWY6rbUnKbimW7cicOckKZZCq98HTyBfP4F2eHEUDXULYIyGjYr3bIldY9Oj4JLz05rZ5bvXrjNOlBdrQhrjV",
+      "estimatedCost": 7.5,
+      "boundingBox": {
+        "width": 55,
+        "height": 13,
+        "depth": 28
+      },
+      "position3d": {
+        "x": 60,
+        "y": 170,
+        "z": 45
+      }
+    },
+    {
+      "id": "esp32_house_monitor",
+      "name": "House Monitor ESP32",
+      "pins": [
+        "GPIO2",
+        "GPIO4",
+        "GPIO5",
+        "GPIO16",
+        "GPIO17",
+        "GPIO18",
+        "GPIO19",
+        "GPIO21",
+        "GPIO22",
+        "GPIO23",
+        "GPIO25",
+        "GPIO26",
+        "GPIO27",
+        "ADC_CH0",
+        "ADC_CH1",
+        "ADC_CH2",
+        "ADC_CH3",
+        "ADC_CH4",
+        "ADC_CH5",
+        "ADC_CH6",
+        "ADC_CH7",
+        "TX",
+        "RX",
+        "3V3",
+        "5V",
+        "GND"
+      ],
+      "type": "mcu",
+      "partId": "abab37bb-d5cc-4e9b-99cb-fdb29eb128c9",
+      "ebayUrl": "https://www.ebay.com/sch/i.html?_nkw=ESP32-WROOM-32D+Development+Board&_sacat=0&_from=R40&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339153059&customid=blueprint&toolid=10001&mkevt=1",
+      "category": "electrical",
+      "imageUrl": "https://m.media-amazon.com/images/I/51z9NSjgtEL._SL500_.jpg",
+      "quantity": 1,
+      "research": {
+        "specs": [
+          {
+            "label": "Type",
+            "value": "Transceiver; 802.11 b/g/n (Wi-Fi, WiFi, WLAN), Bluetooth® Smart Ready 4.x Dual Mode (BLE)"
+          },
+          {
+            "label": "pins",
+            "value": "GPIO16,GPIO17,GPIO18,GPIO19,GPIO21,GPIO22,GPIO23,GPIO25,GPIO26,GPIO27,3V3,5V,GND"
+          },
+          {
+            "label": "Contents",
+            "value": "Board(s)"
+          },
+          {
+            "label": "Frequency",
+            "value": "2.4GHz"
+          },
+          {
+            "label": "Antenna Type",
+            "value": "-"
+          },
+          {
+            "label": "Utilized IC / Part",
+            "value": "ESP-WROOM-32"
+          }
+        ],
+        "sourcing": [
+          {
+            "url": "https://www.adafruit.com/product/5029",
+            "price": "$18.5",
+            "vendor": "Adafruit"
+          },
+          {
+            "url": "https://www.digikey.com/en/products/detail/espressif-systems/ESP32-DEVKITC-32D/9356990",
+            "price": "$15",
+            "vendor": "DigiKey"
+          },
+          {
+            "url": "https://www.amazon.com/dp/B08D5ZD528?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "price": "$16.79",
+            "vendor": "Amazon"
+          },
+          {
+            "url": "https://www.aliexpress.com/item/1005007096886808.html?pdp_npi=6%40dis%21USD%2111.25%215.62%21%21%2176.30%2138.15%21%40214114e317793253327663220e1277%2112000057697399037%21affd%21%21%21%211%210%21",
+            "price": "$5.62",
+            "vendor": "AliExpress"
+          },
+          {
+            "url": "https://www.amazon.com/dp/B0CR5Y2JVD?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "price": "$16.59",
+            "vendor": "Amazon"
+          }
+        ],
+        "datasheetUrl": "https://www.espressif.com/sites/default/files/documentation/esp32-wroom-32d_esp32-wroom-32u_datasheet_en.pdf"
+      },
+      "amazonUrl": "https://www.amazon.com/dp/B08D5ZD528?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+      "dimensions": "55x28x13mm",
+      "description": "EVAL BOARD FOR ESP-WROOM-32",
+      "productName": "ESP32-WROOM-32D Development Board",
+      "purchaseUrl": "https://www.digikey.com/en/products/detail/espressif-systems/ESP32-DEVKITC-32D/9356990",
+      "aliexpressUrl": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxR6vbyXY2ppL9ObRmYh4w4AK032f6bBm9NDrp62dnlrDQlnlop8wQc5bP4qXfeJ276Yek60BQaZDYxId5Ukphk7sJJODgS1isRhZwKXDxwwiDFyENTPU35PqQK8lkODm1HaTad4RY4cP1wl45WTeh4RlPsVUHy4VlZIc1wB2PtjlQuLRD9hen7MaRbZW4t6zXUfC9bGHFbOF2gFiVJefzCXxYaTVzAVLAUvLSHkbqyQnqrFk1uqwOrOEbNP1LnoiHms9bNBTW9BnmuZ44dVxgrvfnPRrtF1DzjkV2MH7aZGrCLMYBexygMLfan7wIJiUJp4eIOAU63ETQxHQnhQQvMDIqXUQpIHv7ZeJ0RbYR4h6ZSCgjbqlf53uzTimPSlFbe9eC1rCOfbX7oPNipLwACODeOTiaCIO3enuw0oxwosWlviDGwFcQqVRTXhsNeyocPqKgRBrbSMdVuP2Ge1Q2IaEEkhh50Eg8BKvlCGSy32SrGjbmQcul0fMiQX1jWAuMkblVsvgxVG3UGecyBxwSKIQHPNhkDKAt2fnBrwReTsvwTT4maM3YA81857bt5dxvTzGWY6rbUnKbimW7cicOckKZZCq98HTyBfP4F2eHEUDXULYIyGjYr3bIldY9Oj4JLz05rZ5bvXrjNOlBdrQhrjV",
+      "estimatedCost": 7.5,
+      "boundingBox": {
+        "width": 55,
+        "height": 13,
+        "depth": 28
+      },
+      "position3d": {
+        "x": 220,
+        "y": 170,
+        "z": 45
+      }
+    },
+    {
+      "id": "acs712_grid_sensor",
+      "name": "Grid Current Sensor",
+      "pins": [
+        "VCC",
+        "GND",
+        "OUT",
+        "Current_Path_In",
+        "Current_Path_Out"
+      ],
+      "type": "sensor",
+      "partId": "276851bd-f90b-407a-8275-55dfcb23bfe7",
+      "ebayUrl": "https://www.ebay.com/sch/i.html?_nkw=ACS712+Current+Sensor+Module+%2830A%29&_sacat=0&_from=R40&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339153059&customid=blueprint&toolid=10001&mkevt=1",
+      "category": "electrical",
+      "imageUrl": "https://m.media-amazon.com/images/I/51kZOKXRx8L._SL500_.jpg",
+      "quantity": 1,
+      "research": {
+        "specs": [
+          {
+            "label": "pins",
+            "value": "VCC,GND,OUT"
+          }
+        ],
+        "sourcing": [
+          {
+            "url": "https://www.amazon.com/dp/B09L6YYX4X?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "price": "$11.99",
+            "vendor": "Amazon"
+          },
+          {
+            "url": "https://www.aliexpress.com/item/1005008644741254.html?pdp_npi=6%40dis%21USD%216.84%213.08%21%21%2146.29%2120.83%21%402151fd2c17794218051727333e0f73%2112000046079134775%21affd%21%21%21%211%210%21",
+            "price": "$3.08",
+            "vendor": "AliExpress"
+          },
+          {
+            "url": "https://www.amazon.com/dp/B07SPRL8DL?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "price": "$7.49",
+            "vendor": "Amazon"
+          }
+        ]
+      },
+      "amazonUrl": "https://www.amazon.com/dp/B09L6YYX4X?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+      "dimensions": "31x13x15mm",
+      "description": "Measures AC current in the main power line using Hall effect, providing an analog voltage output. Provides galvanic isolation.",
+      "productName": "ACS712 Current Sensor Module (30A)",
+      "purchaseUrl": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxRaz6fvErv2hdkUsCOaC057cU3DWrBjWTCehYxJb58FVaS7VASG6QCarwI094AbZX40abEeN0gEZimOiFs5bO7yWuVNvlO4uplsd7q1evxmi3WRji4FmIPs4Emf7ZnZCZJlywrm6W0hccuK84o784wg0osFdmCL5E3R2LuYvEPyKmgMg2U7JiOWRYsE5snskdjibq5KS6z914kDbA1Y0PKn9ZN9GW7KBRsrN0Nk6hMBbv2FZV3ugtLGBt1zG7e5YbSj0feLOtu7zCl5vF8ZNVZ4Sz59Dp3YAby7qjkSWoBOPxZnsvEK0yWb6oOEG1PtKDqbviJL6tJml7ah9DCEV4y2oiyP1KqH8Bg0XM1oZfUAXJ4BvyDYWtXrMKmofmMpV3x6RJRb85mK1qau2TEKR9iENLVtE2MSp6aAI1PvWRv9mFaqIKKMF2czQbOvi2daSNGADSj1Vscso7Xp5Oe58kikZDvohbt7nX444k0NIxNX9N2DDEctriINEfLdLXyG2kjNnhO7TSBzJs5pGjbn4LhXGzfchDB79pqDSn3DLI8k7XK5AZ1zWoApohCFEQohvHFznzSnFl2bYGdiru2QjMTw34LfbLBHeTOgWIin0GkHDjThCxfRxmOX1gXJqFNuU5vUhenQUxhSsQc2xqshRIxHh",
+      "aliexpressUrl": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxRaz6fvErv2hdkUsCOaC057cU3DWrBjWTCehYxJb58FVaS7VASG6QCarwI094AbZX40abEeN0gEZimOiFs5bO7yWuVNvlO4uplsd7q1evxmi3WRji4FmIPs4Emf7ZnZCZJlywrm6W0hccuK84o784wg0osFdmCL5E3R2LuYvEPyKmgMg2U7JiOWRYsE5snskdjibq5KS6z914kDbA1Y0PKn9ZN9GW7KBRsrN0Nk6hMBbv2FZV3ugtLGBt1zG7e5YbSj0feLOtu7zCl5vF8ZNVZ4Sz59Dp3YAby7qjkSWoBOPxZnsvEK0yWb6oOEG1PtKDqbviJL6tJml7ah9DCEV4y2oiyP1KqH8Bg0XM1oZfUAXJ4BvyDYWtXrMKmofmMpV3x6RJRb85mK1qau2TEKR9iENLVtE2MSp6aAI1PvWRv9mFaqIKKMF2czQbOvi2daSNGADSj1Vscso7Xp5Oe58kikZDvohbt7nX444k0NIxNX9N2DDEctriINEfLdLXyG2kjNnhO7TSBzJs5pGjbn4LhXGzfchDB79pqDSn3DLI8k7XK5AZ1zWoApohCFEQohvHFznzSnFl2bYGdiru2QjMTw34LfbLBHeTOgWIin0GkHDjThCxfRxmOX1gXJqFNuU5vUhenQUxhSsQc2xqshRIxHh",
+      "estimatedCost": 3,
+      "boundingBox": {
+        "width": 31,
+        "height": 15,
+        "depth": 13
+      },
+      "position3d": {
+        "x": 60,
+        "y": 100,
+        "z": 30
+      }
+    },
+    {
+      "id": "acs712_house_sensor",
+      "name": "House Current Sensor",
+      "pins": [
+        "VCC",
+        "GND",
+        "OUT",
+        "Current_Path_In",
+        "Current_Path_Out"
+      ],
+      "type": "sensor",
+      "partId": "276851bd-f90b-407a-8275-55dfcb23bfe7",
+      "ebayUrl": "https://www.ebay.com/sch/i.html?_nkw=ACS712+Current+Sensor+Module+%2830A%29&_sacat=0&_from=R40&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339153059&customid=blueprint&toolid=10001&mkevt=1",
+      "category": "electrical",
+      "imageUrl": "https://m.media-amazon.com/images/I/51kZOKXRx8L._SL500_.jpg",
+      "quantity": 1,
+      "research": {
+        "specs": [
+          {
+            "label": "pins",
+            "value": "VCC,GND,OUT"
+          }
+        ],
+        "sourcing": [
+          {
+            "url": "https://www.amazon.com/dp/B09L6YYX4X?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "price": "$11.99",
+            "vendor": "Amazon"
+          },
+          {
+            "url": "https://www.aliexpress.com/item/1005008644741254.html?pdp_npi=6%40dis%21USD%216.84%213.08%21%21%2146.29%2120.83%21%402151fd2c17794218051727333e0f73%2112000046079134775%21affd%21%21%21%211%210%21",
+            "price": "$3.08",
+            "vendor": "AliExpress"
+          },
+          {
+            "url": "https://www.amazon.com/dp/B07SPRL8DL?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "price": "$7.49",
+            "vendor": "Amazon"
+          }
+        ]
+      },
+      "amazonUrl": "https://www.amazon.com/dp/B09L6YYX4X?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+      "dimensions": "31x13x15mm",
+      "description": "Measures AC current in the main power line using Hall effect, providing an analog voltage output. Provides galvanic isolation.",
+      "productName": "ACS712 Current Sensor Module (30A)",
+      "purchaseUrl": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxRaz6fvErv2hdkUsCOaC057cU3DWrBjWTCehYxJb58FVaS7VASG6QCarwI094AbZX40abEeN0gEZimOiFs5bO7yWuVNvlO4uplsd7q1evxmi3WRji4FmIPs4Emf7ZnZCZJlywrm6W0hccuK84o784wg0osFdmCL5E3R2LuYvEPyKmgMg2U7JiOWRYsE5snskdjibq5KS6z914kDbA1Y0PKn9ZN9GW7KBRsrN0Nk6hMBbv2FZV3ugtLGBt1zG7e5YbSj0feLOtu7zCl5vF8ZNVZ4Sz59Dp3YAby7qjkSWoBOPxZnsvEK0yWb6oOEG1PtKDqbviJL6tJml7ah9DCEV4y2oiyP1KqH8Bg0XM1oZfUAXJ4BvyDYWtXrMKmofmMpV3x6RJRb85mK1qau2TEKR9iENLVtE2MSp6aAI1PvWRv9mFaqIKKMF2czQbOvi2daSNGADSj1Vscso7Xp5Oe58kikZDvohbt7nX444k0NIxNX9N2DDEctriINEfLdLXyG2kjNnhO7TSBzJs5pGjbn4LhXGzfchDB79pqDSn3DLI8k7XK5AZ1zWoApohCFEQohvHFznzSnFl2bYGdiru2QjMTw34LfbLBHeTOgWIin0GkHDjThCxfRxmOX1gXJqFNuU5vUhenQUxhSsQc2xqshRIxHh",
+      "aliexpressUrl": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxRaz6fvErv2hdkUsCOaC057cU3DWrBjWTCehYxJb58FVaS7VASG6QCarwI094AbZX40abEeN0gEZimOiFs5bO7yWuVNvlO4uplsd7q1evxmi3WRji4FmIPs4Emf7ZnZCZJlywrm6W0hccuK84o784wg0osFdmCL5E3R2LuYvEPyKmgMg2U7JiOWRYsE5snskdjibq5KS6z914kDbA1Y0PKn9ZN9GW7KBRsrN0Nk6hMBbv2FZV3ugtLGBt1zG7e5YbSj0feLOtu7zCl5vF8ZNVZ4Sz59Dp3YAby7qjkSWoBOPxZnsvEK0yWb6oOEG1PtKDqbviJL6tJml7ah9DCEV4y2oiyP1KqH8Bg0XM1oZfUAXJ4BvyDYWtXrMKmofmMpV3x6RJRb85mK1qau2TEKR9iENLVtE2MSp6aAI1PvWRv9mFaqIKKMF2czQbOvi2daSNGADSj1Vscso7Xp5Oe58kikZDvohbt7nX444k0NIxNX9N2DDEctriINEfLdLXyG2kjNnhO7TSBzJs5pGjbn4LhXGzfchDB79pqDSn3DLI8k7XK5AZ1zWoApohCFEQohvHFznzSnFl2bYGdiru2QjMTw34LfbLBHeTOgWIin0GkHDjThCxfRxmOX1gXJqFNuU5vUhenQUxhSsQc2xqshRIxHh",
+      "estimatedCost": 3,
+      "boundingBox": {
+        "width": 31,
+        "height": 15,
+        "depth": 13
+      },
+      "position3d": {
+        "x": 220,
+        "y": 100,
+        "z": 30
+      }
+    },
+    {
+      "id": "relay_power_cut",
+      "name": "Power Cutoff Relay",
+      "pins": [
+        "VCC",
+        "GND",
+        "IN",
+        "NC",
+        "NO"
+      ],
+      "type": "actuator",
+      "partId": "edbbb520-284e-42f7-9d30-75ed52fb14a1",
+      "ebayUrl": "https://www.ebay.com/sch/i.html?_nkw=1+Channel+5V+Relay+Module+%2810A+250VAC%29&_sacat=0&_from=R40&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339153059&customid=blueprint&toolid=10001&mkevt=1",
+      "category": "electrical",
+      "imageUrl": "https://m.media-amazon.com/images/I/514mb+bavaL._SL500_.jpg",
+      "quantity": 1,
+      "research": {
+        "sourcing": [
+          {
+            "url": "https://www.amazon.com/dp/B0CHFJSNP6?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "price": "$9.99",
+            "vendor": "Amazon"
+          },
+          {
+            "url": "https://www.aliexpress.com/item/1005012203723237.html?pdp_npi=6%40dis%21USD%2115.52%2115.52%21%21%21105.00%21105.00%21%402151fd2c17794440416915326e0e4a%2112000057766264284%21affd%21%21%21%211%210%21",
+            "price": "$15.52",
+            "vendor": "AliExpress"
+          }
+        ]
+      },
+      "amazonUrl": "https://www.amazon.com/dp/B0CHFJSNP6?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+      "dimensions": "43x17x19mm",
+      "productName": "1 Channel 5V Relay Module (10A 250VAC)",
+      "purchaseUrl": "https://www.amazon.com/dp/B0CHFJSNP6?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+      "aliexpressUrl": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0Jxg1phiovfzRNWbKYSO5bHCpvOp9VsPAEcw05G82uR7pCHps9WlwORkYTpkdZHMgrn6dsYKWyU0pR2KtcElYs6VtXpPXRJ4JNTc2wviHa4S12cLRPO51TDNrQbQqIh62WMFBDc04AITdBEMuQtnrM1fwtgdmdVIpcdx6TtTvYHO9Svrbr7ekYrPAO7aOuYcgx23OlF6octqv2CTbbHXsNpFoVOC3ziIkzd5dUbGIgAHlKKg9AgPO0TU82cPJTB3ZXNdvYHYnKIVqiZ5YjgCAyKJyYaWoyPigCKqkZbHEt0Gwj2D2FEKiGcZ4XWcyIba7zh6Y4RvjjNY008c3JMI2TiQwEY2hwHd1Bb7HHFqv1WnhOfYXAMRNfSBihNwWvlr61w0jGGVITrQsBjFOCiqH5nh41d98AcEqfnw4sTITxDgmjKDN6NgNiNK8myoJnjQtRGmMjJaMWlKWBKxLm1SfCehX78GnUWOqH8PZ9Fy2DXf3rBx3FCY5AhrDlUV7w1ftdWKEpFM44XKGAABkL3r5cMOhwcs8vfiU0SgKgBDNMi3tYJoD7wLM5RiiwyNOqmqkf9HyxJdGARLWrbPvVPrbrdPwwcFkcCln3CxwApleA0HY1WAWYu1cPAnUzEYwNYcSXPBnGh57Jq2d8SLU38HeitVa7",
+      "estimatedCost": 2,
+      "boundingBox": {
+        "width": 43,
+        "height": 19,
+        "depth": 17
+      },
+      "position3d": {
+        "x": 60,
+        "y": 135,
+        "z": 40
+      }
+    },
+    {
+      "id": "buzzer_alarm",
+      "name": "Audible Alarm Buzzer",
+      "pins": [
+        "VCC",
+        "GND",
+        "IO"
+      ],
+      "type": "actuator",
+      "partId": "cf58b001-a986-467e-80b7-c9067976dba9",
+      "ebayUrl": "https://www.ebay.com/sch/i.html?_nkw=Active+Buzzer+Module+%285V%29&_sacat=0&_from=R40&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339153059&customid=blueprint&toolid=10001&mkevt=1",
+      "category": "electrical",
+      "imageUrl": "https://m.media-amazon.com/images/I/41TEEwHp4-L._SL500_.jpg",
+      "quantity": 1,
+      "research": {
+        "sourcing": [
+          {
+            "url": "https://www.amazon.com/dp/B0D8BBPV2S?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "price": "$6.99",
+            "vendor": "Amazon"
+          },
+          {
+            "url": "https://www.aliexpress.com/item/1005007287329656.html?pdp_npi=6%40dis%21USD%217.56%212.49%21%21%2151.17%2116.89%21%402151fca717794440418242940e1129%2112000041396153750%21affd%21%21%21%211%210%21",
+            "price": "$2.49",
+            "vendor": "AliExpress"
+          }
+        ]
+      },
+      "amazonUrl": "https://www.amazon.com/dp/B0D8BBPV2S?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+      "dimensions": "18x15x8mm",
+      "description": "Active buzzer module to produce the doorbell sound.",
+      "productName": "Active Buzzer Module (5V)",
+      "purchaseUrl": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxRuBr0tx1sVGoV08bi5INVfEJfr04iBNDtR9Vgt4Oa70Rs2Lbw3xzCPkSQOs2n87Vw6c852UvgaN3fRtfAeKBU7eO4fkr4zoBDCZhaXDH23uzaeZPgc23YnIiQvxtTvMCj0JfgjThnYk0DfAkNoUKhUmWUwtgJaucpgQbR5ZFLJMJZIOGheoVJwG5gXrCduif3HA8Jmx8D4FbDZO9MOuixS7y6ksvjmNMevSlfI9nwfcYdXRn6nlAqOeNTWgVGHxrwT8GcS14rftiQkWjoefDFivI2zkgNkeph3YElO7BJMSTlUvN9xvAZjdXCPV5FmKmKg28Fljsxh3w2cB9vkShQ7Dgp7EMOL968Ow3pQHuVUQRgWjJX1epjxn7OhE8upeH99tvtiyLJSwxa7IvjSMktHaaDoJHWJl19b1rLoWlB0EhjiyQ7AzslA74EWPqeAaG4Z3ITJ0MnP7a0UXpGEe5s2EdTiRpSeFi8L6WAqQGn1y7jTLPFJ5XTBp3kQmoxjq7yCDPHMQ6ZIlfcbmm7qwLDN2OXplmm2nZtUlzidx1aOtkhjZfKcQGm2Q6YfCVWp2xnGxH91zmYPaOBLlAjfMPgYXF5YuMT0WD1cxuBkxkitnx6C0H2M6Rppn1XAvSLR8aYKFU1qEB1cgQXsDuSojicob",
+      "aliexpressUrl": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxRuBr0tx1sVGoV08bi5INVfEJfr04iBNDtR9Vgt4Oa70Rs2Lbw3xzCPkSQOs2n87Vw6c852UvgaN3fRtfAeKBU7eO4fkr4zoBDCZhaXDH23uzaeZPgc23YnIiQvxtTvMCj0JfgjThnYk0DfAkNoUKhUmWUwtgJaucpgQbR5ZFLJMJZIOGheoVJwG5gXrCduif3HA8Jmx8D4FbDZO9MOuixS7y6ksvjmNMevSlfI9nwfcYdXRn6nlAqOeNTWgVGHxrwT8GcS14rftiQkWjoefDFivI2zkgNkeph3YElO7BJMSTlUvN9xvAZjdXCPV5FmKmKg28Fljsxh3w2cB9vkShQ7Dgp7EMOL968Ow3pQHuVUQRgWjJX1epjxn7OhE8upeH99tvtiyLJSwxa7IvjSMktHaaDoJHWJl19b1rLoWlB0EhjiyQ7AzslA74EWPqeAaG4Z3ITJ0MnP7a0UXpGEe5s2EdTiRpSeFi8L6WAqQGn1y7jTLPFJ5XTBp3kQmoxjq7yCDPHMQ6ZIlfcbmm7qwLDN2OXplmm2nZtUlzidx1aOtkhjZfKcQGm2Q6YfCVWp2xnGxH91zmYPaOBLlAjfMPgYXF5YuMT0WD1cxuBkxkitnx6C0H2M6Rppn1XAvSLR8aYKFU1qEB1cgQXsDuSojicob",
+      "estimatedCost": 1.5,
+      "boundingBox": {
+        "width": 18,
+        "height": 8,
+        "depth": 15
+      },
+      "position3d": {
+        "x": 105,
+        "y": 170,
+        "z": 35
+      }
+    },
+    {
+      "id": "lcd_display",
+      "name": "Status LCD Display",
+      "pins": [
+        "VCC",
+        "GND",
+        "SDA",
+        "SCL"
+      ],
+      "type": "display",
+      "partId": "b917b82d-b31e-4bf4-93f9-476d0df2aaa2",
+      "ebayUrl": "https://www.ebay.com/sch/i.html?_nkw=1602+LCD+Display+Module+with+I2C&_sacat=0&_from=R40&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339153059&customid=blueprint&toolid=10001&mkevt=1",
+      "category": "electrical",
+      "imageUrl": "https://m.media-amazon.com/images/I/51ILaawhpCL._SL500_.jpg",
+      "quantity": 1,
+      "research": {
+        "sourcing": [
+          {
+            "url": "https://www.aliexpress.com/item/1005007758009506.html?pdp_npi=6%40dis%21USD%211.78%211.78%21%21%2112.04%2112.04%21%402140d36117794901042491330e0fe5%2112000042105133677%21affd%21%21%21%211%210%21",
+            "price": "$1.78",
+            "vendor": "AliExpress"
+          },
+          {
+            "url": "https://www.amazon.com/dp/B0BWTFN9WF?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "price": "$12.99",
+            "vendor": "Amazon"
+          }
+        ]
+      },
+      "amazonUrl": "https://www.amazon.com/dp/B0BWTFN9WF?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+      "dimensions": "80x36x15mm",
+      "description": "Displays system status, temperatures, and operational mode.",
+      "productName": "1602 LCD Display Module with I2C",
+      "purchaseUrl": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxHtIim6EfwFgQSbIMly0vPiVgo4cMBO6iKJfSNnMMeBSYbiIA24FSrkp7EJuagbOJN3mghRWx9vMvlO5pcsuQui60RIeSheV5ePi9WcYaNztTxQ1S8UIOx4sEQRupUWzZWQIwoeUiN89TkaMiTkGIhsqZ5v62UW0KewxpFRFE5b0lc93L5ucRmpcmmE0oA7qveeDF3w6JOE8SxXsvGiK8IW7UpA46vBW3npfWUGfeFw4zreta99OSVKqYESjwUlHkAStAixZDVPzLIcAgen6pvl491vk5g85NgmgPh4ukRV9XdIZabXXfJcWfDa0HIGGa0riQXiamxY869jlR8BDWb58ZSyfTd2uAc4DfFIEJROfX3G8Hj9aPylITP55VJbKYNwSxSlN6XuaCdCGKwyPO6BaYXn7Mzm5cxH8sd5C4XylNe7A1864A419PW8wfKo6Py595BW5L8ikk2BG8Xgr1B2kxIglt6R3j2gs60isgjvrNJ92zJcTExcrEnR3BisrzXXfXgM97Th3T8ras3AKtnBpFO6WxpRIwf4FulzdKacIlktkhvcOmIEPmHIlrsnCWfZfRniQCh2tck8qil5VQeVeiEyN5XeOIdqaqLX8HglyA1ggQXWwH2kqO36Myz2byIXJtsMzpoCamRgpz5S2FsJt",
+      "aliexpressUrl": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxHtIim6EfwFgQSbIMly0vPiVgo4cMBO6iKJfSNnMMeBSYbiIA24FSrkp7EJuagbOJN3mghRWx9vMvlO5pcsuQui60RIeSheV5ePi9WcYaNztTxQ1S8UIOx4sEQRupUWzZWQIwoeUiN89TkaMiTkGIhsqZ5v62UW0KewxpFRFE5b0lc93L5ucRmpcmmE0oA7qveeDF3w6JOE8SxXsvGiK8IW7UpA46vBW3npfWUGfeFw4zreta99OSVKqYESjwUlHkAStAixZDVPzLIcAgen6pvl491vk5g85NgmgPh4ukRV9XdIZabXXfJcWfDa0HIGGa0riQXiamxY869jlR8BDWb58ZSyfTd2uAc4DfFIEJROfX3G8Hj9aPylITP55VJbKYNwSxSlN6XuaCdCGKwyPO6BaYXn7Mzm5cxH8sd5C4XylNe7A1864A419PW8wfKo6Py595BW5L8ikk2BG8Xgr1B2kxIglt6R3j2gs60isgjvrNJ92zJcTExcrEnR3BisrzXXfXgM97Th3T8ras3AKtnBpFO6WxpRIwf4FulzdKacIlktkhvcOmIEPmHIlrsnCWfZfRniQCh2tck8qil5VQeVeiEyN5XeOIdqaqLX8HglyA1ggQXWwH2kqO36Myz2byIXJtsMzpoCamRgpz5S2FsJt",
+      "estimatedCost": 6,
+      "boundingBox": {
+        "width": 80,
+        "height": 15,
+        "depth": 36
+      },
+      "position3d": {
+        "x": 60,
+        "y": 210,
+        "z": 40
+      }
+    },
+    {
+      "id": "dc_power_supply",
+      "name": "System 5V DC Power Supply",
+      "pins": [
+        "AC_IN",
+        "DC_OUT_+",
+        "DC_OUT_-"
+      ],
+      "type": "power",
+      "partId": "9816fd94-5d82-4c16-8113-4ac7426f4ace",
+      "ebayUrl": "https://www.ebay.com/sch/i.html?_nkw=5V+2A+DC+Power+Adapter&_sacat=0&_from=R40&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339153059&customid=blueprint&toolid=10001&mkevt=1",
+      "category": "electrical",
+      "imageUrl": "https://m.media-amazon.com/images/I/41FwxzTdjxL._SL500_.jpg",
+      "quantity": 1,
+      "research": {
+        "specs": [
+          {
+            "label": "pins",
+            "value": "VOUT,GND"
+          }
+        ],
+        "sourcing": [
+          {
+            "url": "https://www.amazon.com/dp/B09W96X88K?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "price": "$8.29",
+            "vendor": "Amazon"
+          },
+          {
+            "url": "https://www.aliexpress.com/item/4000521124523.html?pdp_npi=6%40dis%21USD%213.28%213.28%21%21%213.28%213.28%21%4021013cc017794314980104492e0f57%2110000002659372360%21affd%21%21%21%211%210%21",
+            "price": "$3.28",
+            "vendor": "AliExpress"
+          }
+        ]
+      },
+      "amazonUrl": "https://www.amazon.com/dp/B09W96X88K?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+      "dimensions": "70x40x30mm",
+      "description": "Wall adapter providing 5V DC power to the system.",
+      "productName": "5V 2A DC Power Adapter",
+      "purchaseUrl": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3xpjK0z5F4tXx7la8qLVQd4zJbXyg9dALrT5MBIzcITYImDKsxK6kLm3p8kR2msLRcYfLpzRG8G8BzCdOPECqLdFmmjI2iX6F245j75XQa6jw0Neuv1hHWq6adsEPEhWs8Hz6FZayHu1Vs0jGxkLLwrwn3XBAS4xAq1RJGVRE8zv35EfWErDhElIN9gjSIsoOBVvzizxXjc2bAVrmhr5Iq3UajVsWLDKOgF5DonGpQTffRC9bsrQgLyfmjSw3LUJ2yNFlCaisXWSWocsWjnu1H4M44HOPJ4YuATreRKbjQIc5KvWieMWdrX32aeX9AcD70PI6ijDaJKtFvOJzoHMOypQqMtRxtx6BCrZaXM8K1dy6ELgvalNikzVHyz9HOZrVPk5PD2IW8sAJycQMnYYT2FR1pQd4mVfg5ZOFzKWJDBdYUaqHQ0bE0fDns20bqSMdoBi6fnzcVbYwEMlGgvEKtc8wxJTeJT5aOnQ7HW05VHaHJg7Y4RJkAmbPfXzNX4thGwcTdZ8S8XkaaPHx0vlotf6WP0c31uU62NFZNEdUgfcnNtZJcbkdVhvg8y6uKEsngQ5oKJMIv5TTpigtyUU5L5QFYIKHz3om4zVKCqnEJy3UcGijAr7gWdOSCI0tq28drbhZvbDW5IguFncwRFFNYGJy8Hf5PVqKYoZhKgE7YYtjEQjg7iF91",
+      "aliexpressUrl": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3xpjK0z5F4tXx7la8qLVQd4zJbXyg9dALrT5MBIzcITYImDKsxK6kLm3p8kR2msLRcYfLpzRG8G8BzCdOPECqLdFmmjI2iX6F245j75XQa6jw0Neuv1hHWq6adsEPEhWs8Hz6FZayHu1Vs0jGxkLLwrwn3XBAS4xAq1RJGVRE8zv35EfWErDhElIN9gjSIsoOBVvzizxXjc2bAVrmhr5Iq3UajVsWLDKOgF5DonGpQTffRC9bsrQgLyfmjSw3LUJ2yNFlCaisXWSWocsWjnu1H4M44HOPJ4YuATreRKbjQIc5KvWieMWdrX32aeX9AcD70PI6ijDaJKtFvOJzoHMOypQqMtRxtx6BCrZaXM8K1dy6ELgvalNikzVHyz9HOZrVPk5PD2IW8sAJycQMnYYT2FR1pQd4mVfg5ZOFzKWJDBdYUaqHQ0bE0fDns20bqSMdoBi6fnzcVbYwEMlGgvEKtc8wxJTeJT5aOnQ7HW05VHaHJg7Y4RJkAmbPfXzNX4thGwcTdZ8S8XkaaPHx0vlotf6WP0c31uU62NFZNEdUgfcnNtZJcbkdVhvg8y6uKEsngQ5oKJMIv5TTpigtyUU5L5QFYIKHz3om4zVKCqnEJy3UcGijAr7gWdOSCI0tq28drbhZvbDW5IguFncwRFFNYGJy8Hf5PVqKYoZhKgE7YYtjEQjg7iF91",
+      "estimatedCost": 8,
+      "boundingBox": {
+        "width": 70,
+        "height": 30,
+        "depth": 40
+      },
+      "position3d": {
+        "x": 60,
+        "y": 170,
+        "z": 130
+      }
+    },
+    {
+      "id": "bypass_switch",
+      "name": "Theft Bypass Switch",
+      "pins": [
+        "COM",
+        "NO"
+      ],
+      "type": "module",
+      "partId": "2d4642c7-4be9-4696-8ed4-e72265b46502",
+      "ebayUrl": "https://www.ebay.com/sch/i.html?_nkw=SPST+Toggle+Switch+%28AC+Rated%29&_sacat=0&_from=R40&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339153059&customid=blueprint&toolid=10001&mkevt=1",
+      "category": "electrical",
+      "imageUrl": "https://m.media-amazon.com/images/I/41imVg0b-LL._SL500_.jpg",
+      "quantity": 1,
+      "research": {
+        "sourcing": [
+          {
+            "url": "https://www.amazon.com/dp/B07QGDLJ15?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "price": "$7.66",
+            "vendor": "Amazon"
+          },
+          {
+            "url": "https://www.aliexpress.com/item/1005011569938355.html?pdp_npi=6%40dis%21USD%218.39%214.11%21%21%2156.65%2127.76%21%402151fd3a17797986096881827e1137%2112000055947381437%21affd%21%21%21%211%210%21",
+            "price": "$4.11",
+            "vendor": "AliExpress"
+          },
+          {
+            "url": "https://www.amazon.com/dp/B0DT3NF5B2?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "vendor": "Amazon"
+          }
+        ]
+      },
+      "amazonUrl": "https://www.amazon.com/dp/B07QGDLJ15?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+      "dimensions": "29x15x15mm",
+      "productName": "SPST Toggle Switch (AC Rated)",
+      "purchaseUrl": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxRwXf9SxaCtNd0VlANYczrtgc9pmtq7RlT2zJ7X87n9k25UFHXSR5mfKOAJzAUiKIKm3WJcX1jbXDPzUIgeL2MRATjKO1PjYaKmBFUrUTUmuH1v0mJJTDgRyTFIdvga14ZQihXEj6hsiDiLBPyek9kOLLkRRRJvbdqFc6aQPo9a6FoaCHI5T0PiXnsfYahkEPO8LHwKgEqGHvS7CK87W9J4XWw9jkQmZT4FkhQhCFz6tde3AVLClYLAcm4cH2iHzJ2PF6UAQSxJ1aFddh3qgRMCJsqVKfYRjPvRMlpUgFgQKdvvw0C9lpg4dvdKxwmgInABzotreg8Z3FUoyEDd7wT7h1LbyiYOoYSadXPPyT8IRqFGk0kOZZWWJzY1Fjgb6578A4Ky3cH4F3Z42fmNQSt9aSLv2AzdH9cNCIdPD299BHEFo1mTb409xeVLillBtdjPSQeI6N2KdQqcqWYIOo5Fyj2DZUzkB1ccbXtMDYPYlgGRmVcxWr6RTb2jPU8sm6CboW7Qi87VGim5b7qZk5aA5MlUor5OuUPjWFDlYKjbGwzkba1uozi0wQxwPI1nxtKNXoH1kSeOlNBiKGLovpkUFd1BMm9KK3YunP95EGVMbZT8wsOjp8LO13s3inY6bs9qw2z1M4tPVCkKYG9uCHnBl",
+      "aliexpressUrl": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxRwXf9SxaCtNd0VlANYczrtgc9pmtq7RlT2zJ7X87n9k25UFHXSR5mfKOAJzAUiKIKm3WJcX1jbXDPzUIgeL2MRATjKO1PjYaKmBFUrUTUmuH1v0mJJTDgRyTFIdvga14ZQihXEj6hsiDiLBPyek9kOLLkRRRJvbdqFc6aQPo9a6FoaCHI5T0PiXnsfYahkEPO8LHwKgEqGHvS7CK87W9J4XWw9jkQmZT4FkhQhCFz6tde3AVLClYLAcm4cH2iHzJ2PF6UAQSxJ1aFddh3qgRMCJsqVKfYRjPvRMlpUgFgQKdvvw0C9lpg4dvdKxwmgInABzotreg8Z3FUoyEDd7wT7h1LbyiYOoYSadXPPyT8IRqFGk0kOZZWWJzY1Fjgb6578A4Ky3cH4F3Z42fmNQSt9aSLv2AzdH9cNCIdPD299BHEFo1mTb409xeVLillBtdjPSQeI6N2KdQqcqWYIOo5Fyj2DZUzkB1ccbXtMDYPYlgGRmVcxWr6RTb2jPU8sm6CboW7Qi87VGim5b7qZk5aA5MlUor5OuUPjWFDlYKjbGwzkba1uozi0wQxwPI1nxtKNXoH1kSeOlNBiKGLovpkUFd1BMm9KK3YunP95EGVMbZT8wsOjp8LO13s3inY6bs9qw2z1M4tPVCkKYG9uCHnBl",
+      "estimatedCost": 2.5,
+      "boundingBox": {
+        "width": 29,
+        "height": 15,
+        "depth": 15
+      },
+      "position3d": {
+        "x": 305,
+        "y": 170,
+        "z": 105
+      }
+    },
+    {
+      "id": "tower_a_base_plate",
+      "name": "Tower A Base Plate",
+      "type": "structural",
+      "partId": "df8937a2-f11b-4fb7-93b1-252688b5a07f",
+      "ebayUrl": "https://www.ebay.com/sch/i.html?_nkw=Clear+Acrylic+Sheet&_sacat=0&_from=R40&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339153059&customid=blueprint&toolid=10001&mkevt=1",
+      "category": "mechanical",
+      "imageUrl": "https://m.media-amazon.com/images/I/41FCeilo4zL._SL500_.jpg",
+      "material": "Acrylic",
+      "quantity": 1,
+      "research": {
+        "sourcing": [
+          {
+            "url": "https://www.amazon.com/dp/B0BYSJ7QXV?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "price": "$24.49",
+            "vendor": "Amazon"
+          },
+          {
+            "url": "https://www.aliexpress.com/item/32817321651.html?pdp_npi=6%40dis%21USD%212.28%212.28%21%21%2115.41%2115.41%21%4021013cc617793912868973310e112e%2112000044393459771%21affd%21%21%21%211%210%21",
+            "price": "$2.28",
+            "vendor": "AliExpress"
+          }
+        ]
+      },
+      "amazonUrl": "https://www.amazon.com/dp/B0BYSJ7QXV?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+      "dimensions": "150x150x5mm",
+      "description": "Base plate for Tower A, representing the utility grid.",
+      "productName": "Clear Acrylic Sheet",
+      "purchaseUrl": "https://s.click.aliexpress.com/s/2YgDK2cRCyl9WNkj7vsiSgwQncOI32ZVsrEzbicWkRKbFTNMQbqbkcFOG1OBsMpz0QZ56yDUfJ22csduZdiHbgpEF7Ex3UKlAchlGNBsOXNNF88rwsDtIBwGctERXF9F8Kr7I88X0k96g6ZMhkO3P6ToLVxDdHRMGJpxZpIjxnmHAvyJtyadmk38EGe6i2o8G7iaV7tYZArmhfSTEi2pVyWdpS5Ka22Bg1szqfWcQUeNEjawjvRvXvFLTCW8qblr7wOZUa4C5MI6y0qLQDHLWOVtAJdfQPdNZVN5NXMyndb7vp2IqLBSyXOclU7rFeLoMzdtYzBvfLcioVfImOpKgYOAzKJrzHlMWzycaRoJ49epCT45CnpxdoVPeOuq0r0YOaBshbOG4yUtdY6oZM1XQKPEFarvPGjvGFBqa0IJZ3xSzAaIF9IeWy7pC0tM6pIprkh3Q15KHBVPMHXXHRuwoB5E97cEaSWpOdKhUBVkpvN9ZJcJP4xIJUnCAACfiKDEM32iHD3fBiww5BkyQ28LvLM4kZV26WFyj8jIBRxDs6vPLoEatrUkRusaleNM41Ae9C0Nf3O9q3uYQk8NZxOXab77eArAsVReqi1J0xnVDTrkaWFD7LyCM1s0dhyDas5fWToXgqphWK4Xcbz2Zl0qXIPIwEB9RgCG1Ss3gLy6iFwCEjaGsrLXHGkUxekOSa1DXZuhU5mm9JPe3JpDeUJxXm95X2GC8W65mj6wr7KzeKnz7g6Cqi8o4u1x2DhNp6RwgFc5JwtgYNuvgRdcV1YvDnASCyhmsEbIQUJxtJZPAO07qmbxHeIgJYR01DUOYSh1spsanXMAP5iTmxqGzJadi6nCcBCMpMCltPBZrNecJzeUeZ1Nm7ykoAk0HSylpKxSmFjZ23w9z5qud8EexRXUgzsSL20ZxQlodPrBOzxpczJpFLoMth",
+      "aliexpressUrl": "https://s.click.aliexpress.com/s/2YgDK2cRCyl9WNkj7vsiSgwQncOI32ZVsrEzbicWkRKbFTNMQbqbkcFOG1OBsMpz0QZ56yDUfJ22csduZdiHbgpEF7Ex3UKlAchlGNBsOXNNF88rwsDtIBwGctERXF9F8Kr7I88X0k96g6ZMhkO3P6ToLVxDdHRMGJpxZpIjxnmHAvyJtyadmk38EGe6i2o8G7iaV7tYZArmhfSTEi2pVyWdpS5Ka22Bg1szqfWcQUeNEjawjvRvXvFLTCW8qblr7wOZUa4C5MI6y0qLQDHLWOVtAJdfQPdNZVN5NXMyndb7vp2IqLBSyXOclU7rFeLoMzdtYzBvfLcioVfImOpKgYOAzKJrzHlMWzycaRoJ49epCT45CnpxdoVPeOuq0r0YOaBshbOG4yUtdY6oZM1XQKPEFarvPGjvGFBqa0IJZ3xSzAaIF9IeWy7pC0tM6pIprkh3Q15KHBVPMHXXHRuwoB5E97cEaSWpOdKhUBVkpvN9ZJcJP4xIJUnCAACfiKDEM32iHD3fBiww5BkyQ28LvLM4kZV26WFyj8jIBRxDs6vPLoEatrUkRusaleNM41Ae9C0Nf3O9q3uYQk8NZxOXab77eArAsVReqi1J0xnVDTrkaWFD7LyCM1s0dhyDas5fWToXgqphWK4Xcbz2Zl0qXIPIwEB9RgCG1Ss3gLy6iFwCEjaGsrLXHGkUxekOSa1DXZuhU5mm9JPe3JpDeUJxXm95X2GC8W65mj6wr7KzeKnz7g6Cqi8o4u1x2DhNp6RwgFc5JwtgYNuvgRdcV1YvDnASCyhmsEbIQUJxtJZPAO07qmbxHeIgJYR01DUOYSh1spsanXMAP5iTmxqGzJadi6nCcBCMpMCltPBZrNecJzeUeZ1Nm7ykoAk0HSylpKxSmFjZ23w9z5qud8EexRXUgzsSL20ZxQlodPrBOzxpczJpFLoMth",
+      "estimatedCost": 8,
+      "boundingBox": {
+        "width": 150,
+        "height": 5,
+        "depth": 150
+      },
+      "position3d": {
+        "x": 75,
+        "y": 2.5,
+        "z": 75
+      }
+    },
+    {
+      "id": "tower_b_base_plate",
+      "name": "Tower B Base Plate",
+      "type": "structural",
+      "partId": "df8937a2-f11b-4fb7-93b1-252688b5a07f",
+      "ebayUrl": "https://www.ebay.com/sch/i.html?_nkw=Clear+Acrylic+Sheet&_sacat=0&_from=R40&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339153059&customid=blueprint&toolid=10001&mkevt=1",
+      "category": "mechanical",
+      "imageUrl": "https://m.media-amazon.com/images/I/41FCeilo4zL._SL500_.jpg",
+      "material": "Acrylic",
+      "quantity": 1,
+      "research": {
+        "sourcing": [
+          {
+            "url": "https://www.amazon.com/dp/B0BYSJ7QXV?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "price": "$24.49",
+            "vendor": "Amazon"
+          },
+          {
+            "url": "https://www.aliexpress.com/item/32817321651.html?pdp_npi=6%40dis%21USD%212.28%212.28%21%21%2115.41%2115.41%21%4021013cc617793912868973310e112e%2112000044393459771%21affd%21%21%21%211%210%21",
+            "price": "$2.28",
+            "vendor": "AliExpress"
+          }
+        ]
+      },
+      "amazonUrl": "https://www.amazon.com/dp/B0BYSJ7QXV?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+      "dimensions": "150x150x5mm",
+      "description": "Base plate for Tower B, representing the authorized household.",
+      "productName": "Clear Acrylic Sheet",
+      "purchaseUrl": "https://s.click.aliexpress.com/s/2YgDK2cRCyl9WNkj7vsiSgwQncOI32ZVsrEzbicWkRKbFTNMQbqbkcFOG1OBsMpz0QZ56yDUfJ22csduZdiHbgpEF7Ex3UKlAchlGNBsOXNNF88rwsDtIBwGctERXF9F8Kr7I88X0k96g6ZMhkO3P6ToLVxDdHRMGJpxZpIjxnmHAvyJtyadmk38EGe6i2o8G7iaV7tYZArmhfSTEi2pVyWdpS5Ka22Bg1szqfWcQUeNEjawjvRvXvFLTCW8qblr7wOZUa4C5MI6y0qLQDHLWOVtAJdfQPdNZVN5NXMyndb7vp2IqLBSyXOclU7rFeLoMzdtYzBvfLcioVfImOpKgYOAzKJrzHlMWzycaRoJ49epCT45CnpxdoVPeOuq0r0YOaBshbOG4yUtdY6oZM1XQKPEFarvPGjvGFBqa0IJZ3xSzAaIF9IeWy7pC0tM6pIprkh3Q15KHBVPMHXXHRuwoB5E97cEaSWpOdKhUBVkpvN9ZJcJP4xIJUnCAACfiKDEM32iHD3fBiww5BkyQ28LvLM4kZV26WFyj8jIBRxDs6vPLoEatrUkRusaleNM41Ae9C0Nf3O9q3uYQk8NZxOXab77eArAsVReqi1J0xnVDTrkaWFD7LyCM1s0dhyDas5fWToXgqphWK4Xcbz2Zl0qXIPIwEB9RgCG1Ss3gLy6iFwCEjaGsrLXHGkUxekOSa1DXZuhU5mm9JPe3JpDeUJxXm95X2GC8W65mj6wr7KzeKnz7g6Cqi8o4u1x2DhNp6RwgFc5JwtgYNuvgRdcV1YvDnASCyhmsEbIQUJxtJZPAO07qmbxHeIgJYR01DUOYSh1spsanXMAP5iTmxqGzJadi6nCcBCMpMCltPBZrNecJzeUeZ1Nm7ykoAk0HSylpKxSmFjZ23w9z5qud8EexRXUgzsSL20ZxQlodPrBOzxpczJpFLoMth",
+      "aliexpressUrl": "https://s.click.aliexpress.com/s/2YgDK2cRCyl9WNkj7vsiSgwQncOI32ZVsrEzbicWkRKbFTNMQbqbkcFOG1OBsMpz0QZ56yDUfJ22csduZdiHbgpEF7Ex3UKlAchlGNBsOXNNF88rwsDtIBwGctERXF9F8Kr7I88X0k96g6ZMhkO3P6ToLVxDdHRMGJpxZpIjxnmHAvyJtyadmk38EGe6i2o8G7iaV7tYZArmhfSTEi2pVyWdpS5Ka22Bg1szqfWcQUeNEjawjvRvXvFLTCW8qblr7wOZUa4C5MI6y0qLQDHLWOVtAJdfQPdNZVN5NXMyndb7vp2IqLBSyXOclU7rFeLoMzdtYzBvfLcioVfImOpKgYOAzKJrzHlMWzycaRoJ49epCT45CnpxdoVPeOuq0r0YOaBshbOG4yUtdY6oZM1XQKPEFarvPGjvGFBqa0IJZ3xSzAaIF9IeWy7pC0tM6pIprkh3Q15KHBVPMHXXHRuwoB5E97cEaSWpOdKhUBVkpvN9ZJcJP4xIJUnCAACfiKDEM32iHD3fBiww5BkyQ28LvLM4kZV26WFyj8jIBRxDs6vPLoEatrUkRusaleNM41Ae9C0Nf3O9q3uYQk8NZxOXab77eArAsVReqi1J0xnVDTrkaWFD7LyCM1s0dhyDas5fWToXgqphWK4Xcbz2Zl0qXIPIwEB9RgCG1Ss3gLy6iFwCEjaGsrLXHGkUxekOSa1DXZuhU5mm9JPe3JpDeUJxXm95X2GC8W65mj6wr7KzeKnz7g6Cqi8o4u1x2DhNp6RwgFc5JwtgYNuvgRdcV1YvDnASCyhmsEbIQUJxtJZPAO07qmbxHeIgJYR01DUOYSh1spsanXMAP5iTmxqGzJadi6nCcBCMpMCltPBZrNecJzeUeZ1Nm7ykoAk0HSylpKxSmFjZ23w9z5qud8EexRXUgzsSL20ZxQlodPrBOzxpczJpFLoMth",
+      "estimatedCost": 8,
+      "boundingBox": {
+        "width": 150,
+        "height": 5,
+        "depth": 150
+      },
+      "position3d": {
+        "x": 255,
+        "y": 2.5,
+        "z": 75
+      }
+    },
+    {
+      "id": "tower_a_vertical_support_front",
+      "name": "Tower A Vertical Support Front",
+      "type": "structural",
+      "partId": "2ba951e6-84d0-46d7-917a-9f0a4b357d1d",
+      "ebayUrl": "https://www.ebay.com/sch/i.html?_nkw=Aluminum+Extrusion+2020&_sacat=0&_from=R40&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339153059&customid=blueprint&toolid=10001&mkevt=1",
+      "category": "mechanical",
+      "imageUrl": "https://cdn-shop.adafruit.com/640x480/1220-03.jpg",
+      "material": "Aluminum",
+      "quantity": 1,
+      "research": {
+        "sourcing": [
+          {
+            "url": "https://www.aliexpress.com/item/1005007342221792.html?pdp_npi=6%40dis%21USD%218.56%214.79%21%21%2157.94%2132.45%21%402151fce817794259944148870e0f14%2112000040344397854%21affd%21%21%21%211%210%21",
+            "price": "$4.79",
+            "vendor": "AliExpress"
+          },
+          {
+            "url": "https://www.amazon.com/dp/B09KZR37KG?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "price": "$74.98",
+            "vendor": "Amazon"
+          },
+          {
+            "url": "https://www.adafruit.com/product/1220",
+            "price": "$4.95",
+            "vendor": "Adafruit"
+          },
+          {
+            "url": "https://www.amazon.com/dp/B0CNKSJYB7?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "price": "$75.99",
+            "vendor": "Amazon"
+          }
+        ],
+        "documentationUrls": [
+          {
+            "url": "https://www.adafruit.com/product/1220",
+            "title": "Product Page (Adafruit)"
+          }
+        ]
+      },
+      "amazonUrl": "https://www.amazon.com/dp/B09KZR37KG?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+      "dimensions": "20x20x200mm",
+      "description": "Front vertical support for mounting components in Tower A.",
+      "productName": "Aluminum Extrusion 2020",
+      "purchaseUrl": "https://www.adafruit.com/product/1220",
+      "aliexpressUrl": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxRqFVjHhN7BMa8V4600PsYXXFaO58iUrUpszTZvwONHt2Vv9OY6dMIZNOoSso6r0N9iYIQiKxAobhiYArMzUto21vOJjIa85zlZeEKGEreHzOVDyPVLIbQLcwH1BiijViCrsGBWEkITFR7I36kKQxANRmHqkX0MZuxeV67v4Gw80r98aO6iyqQxiqAHaVDlkOTcqg55PLFf3LGQAFFrRPrbXD4Mxr9Ji8PhtnrYdDrsldisWw7FbUoEOpC0nGxt2xYq64qxW6prIhmHWv3nNGKg3EU9e9EjBvwEVCEq1OwFcYC5a07nqUSiAvVkGjHVvuEevOToB8pnEPhA9i9ekU54QrKCUyjipkZfbAHytO1a9IB8QtyiYG8rN0PrEGLzysZmoSTgIR8E47kwTNtkRhF3qW6DBoMPwZnDgNRhb3sayx4NzdycG0ElhYe2tEz6obPGjKU35GF4l6OPjyEAwZdySmvX40EMvbbvvS57ODLM6JAbxyW60GFQoUGprMHbCJUE0PJYdA7E5wUnZeybo4Chx0NsOHfvCHwMJq5dgyJxAWdYZ1ECGbZrBcAZ3obQgKar2FwQXMoJOoP5LUV1THd7Rn9GRyAtUxEXzwvAcSsmtThonVCdkbITVcbtbixU1EjALeAIFDIxGWtag72mMJNd1",
+      "estimatedCost": 5,
+      "boundingBox": {
+        "width": 20,
+        "height": 200,
+        "depth": 20
+      },
+      "position3d": {
+        "x": 20,
+        "y": 105,
+        "z": 40
+      }
+    },
+    {
+      "id": "tower_a_vertical_support_back",
+      "name": "Tower A Vertical Support Back",
+      "type": "structural",
+      "partId": "2ba951e6-84d0-46d7-917a-9f0a4b357d1d",
+      "ebayUrl": "https://www.ebay.com/sch/i.html?_nkw=Aluminum+Extrusion+2020&_sacat=0&_from=R40&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339153059&customid=blueprint&toolid=10001&mkevt=1",
+      "category": "mechanical",
+      "imageUrl": "https://cdn-shop.adafruit.com/640x480/1220-03.jpg",
+      "material": "Aluminum",
+      "quantity": 1,
+      "research": {
+        "sourcing": [
+          {
+            "url": "https://www.aliexpress.com/item/1005007342221792.html?pdp_npi=6%40dis%21USD%218.56%214.79%21%21%2157.94%2132.45%21%402151fce817794259944148870e0f14%2112000040344397854%21affd%21%21%21%211%210%21",
+            "price": "$4.79",
+            "vendor": "AliExpress"
+          },
+          {
+            "url": "https://www.amazon.com/dp/B09KZR37KG?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "price": "$74.98",
+            "vendor": "Amazon"
+          },
+          {
+            "url": "https://www.adafruit.com/product/1220",
+            "price": "$4.95",
+            "vendor": "Adafruit"
+          },
+          {
+            "url": "https://www.amazon.com/dp/B0CNKSJYB7?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "price": "$75.99",
+            "vendor": "Amazon"
+          }
+        ],
+        "documentationUrls": [
+          {
+            "url": "https://www.adafruit.com/product/1220",
+            "title": "Product Page (Adafruit)"
+          }
+        ]
+      },
+      "amazonUrl": "https://www.amazon.com/dp/B09KZR37KG?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+      "dimensions": "20x20x200mm",
+      "description": "Rear vertical support for mounting components in Tower A.",
+      "productName": "Aluminum Extrusion 2020",
+      "purchaseUrl": "https://www.adafruit.com/product/1220",
+      "aliexpressUrl": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxRqFVjHhN7BMa8V4600PsYXXFaO58iUrUpszTZvwONHt2Vv9OY6dMIZNOoSso6r0N9iYIQiKxAobhiYArMzUto21vOJjIa85zlZeEKGEreHzOVDyPVLIbQLcwH1BiijViCrsGBWEkITFR7I36kKQxANRmHqkX0MZuxeV67v4Gw80r98aO6iyqQxiqAHaVDlkOTcqg55PLFf3LGQAFFrRPrbXD4Mxr9Ji8PhtnrYdDrsldisWw7FbUoEOpC0nGxt2xYq64qxW6prIhmHWv3nNGKg3EU9e9EjBvwEVCEq1OwFcYC5a07nqUSiAvVkGjHVvuEevOToB8pnEPhA9i9ekU54QrKCUyjipkZfbAHytO1a9IB8QtyiYG8rN0PrEGLzysZmoSTgIR8E47kwTNtkRhF3qW6DBoMPwZnDgNRhb3sayx4NzdycG0ElhYe2tEz6obPGjKU35GF4l6OPjyEAwZdySmvX40EMvbbvvS57ODLM6JAbxyW60GFQoUGprMHbCJUE0PJYdA7E5wUnZeybo4Chx0NsOHfvCHwMJq5dgyJxAWdYZ1ECGbZrBcAZ3obQgKar2FwQXMoJOoP5LUV1THd7Rn9GRyAtUxEXzwvAcSsmtThonVCdkbITVcbtbixU1EjALeAIFDIxGWtag72mMJNd1",
+      "estimatedCost": 5,
+      "boundingBox": {
+        "width": 20,
+        "height": 200,
+        "depth": 20
+      },
+      "position3d": {
+        "x": 20,
+        "y": 105,
+        "z": 110
+      }
+    },
+    {
+      "id": "tower_b_vertical_support_front",
+      "name": "Tower B Vertical Support Front",
+      "type": "structural",
+      "partId": "2ba951e6-84d0-46d7-917a-9f0a4b357d1d",
+      "ebayUrl": "https://www.ebay.com/sch/i.html?_nkw=Aluminum+Extrusion+2020&_sacat=0&_from=R40&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339153059&customid=blueprint&toolid=10001&mkevt=1",
+      "category": "mechanical",
+      "imageUrl": "https://cdn-shop.adafruit.com/640x480/1220-03.jpg",
+      "material": "Aluminum",
+      "quantity": 1,
+      "research": {
+        "sourcing": [
+          {
+            "url": "https://www.aliexpress.com/item/1005007342221792.html?pdp_npi=6%40dis%21USD%218.56%214.79%21%21%2157.94%2132.45%21%402151fce817794259944148870e0f14%2112000040344397854%21affd%21%21%21%211%210%21",
+            "price": "$4.79",
+            "vendor": "AliExpress"
+          },
+          {
+            "url": "https://www.amazon.com/dp/B09KZR37KG?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "price": "$74.98",
+            "vendor": "Amazon"
+          },
+          {
+            "url": "https://www.adafruit.com/product/1220",
+            "price": "$4.95",
+            "vendor": "Adafruit"
+          },
+          {
+            "url": "https://www.amazon.com/dp/B0CNKSJYB7?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "price": "$75.99",
+            "vendor": "Amazon"
+          }
+        ],
+        "documentationUrls": [
+          {
+            "url": "https://www.adafruit.com/product/1220",
+            "title": "Product Page (Adafruit)"
+          }
+        ]
+      },
+      "dimensions": "20x20x200mm",
+      "description": "Front vertical support for mounting components in Tower B.",
+      "productName": "Aluminum Extrusion 2020",
+      "purchaseUrl": "https://www.adafruit.com/product/1220",
+      "aliexpressUrl": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxRqFVjHhN7BMa8V4600PsYXXFaO58iUrUpszTZvwONHt2Vv9OY6dMIZNOoSso6r0N9iYIQiKxAobhiYArMzUto21vOJjIa85zlZeEKGEreHzOVDyPVLIbQLcwH1BiijViCrsGBWEkITFR7I36kKQxANRmHqkX0MZuxeV67v4Gw80r98aO6iyqQxiqAHaVDlkOTcqg55PLFf3LGQAFFrRPrbXD4Mxr9Ji8PhtnrYdDrsldisWw7FbUoEOpC0nGxt2xYq64qxW6prIhmHWv3nNGKg3EU9e9EjBvwEVCEq1OwFcYC5a07nqUSiAvVkGjHVvuEevOToB8pnEPhA9i9ekU54QrKCUyjipkZfbAHytO1a9IB8QtyiYG8rN0PrEGLzysZmoSTgIR8E47kwTNtkRhF3qW6DBoMPwZnDgNRhb3sayx4NzdycG0ElhYe2tEz6obPGjKU35GF4l6OPjyEAwZdySmvX40EMvbbvvS57ODLM6JAbxyW60GFQoUGprMHbCJUE0PJYdA7E5wUnZeybo4Chx0NsOHfvCHwMJq5dgyJxAWdYZ1ECGbZrBcAZ3obQgKar2FwQXMoJOoP5LUV1THd7Rn9GRyAtUxEXzwvAcSsmtThonVCdkbITVcbtbixU1EjALeAIFDIxGWtag72mMJNd1",
+      "estimatedCost": 5,
+      "amazonUrl": "https://www.amazon.com/dp/B09KZR37KG?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+      "boundingBox": {
+        "width": 20,
+        "height": 200,
+        "depth": 20
+      },
+      "position3d": {
+        "x": 190,
+        "y": 105,
+        "z": 40
+      }
+    },
+    {
+      "id": "tower_b_vertical_support_back",
+      "name": "Tower B Vertical Support Back",
+      "type": "structural",
+      "partId": "2ba951e6-84d0-46d7-917a-9f0a4b357d1d",
+      "ebayUrl": "https://www.ebay.com/sch/i.html?_nkw=Aluminum+Extrusion+2020&_sacat=0&_from=R40&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339153059&customid=blueprint&toolid=10001&mkevt=1",
+      "category": "mechanical",
+      "imageUrl": "https://cdn-shop.adafruit.com/640x480/1220-03.jpg",
+      "material": "Aluminum",
+      "quantity": 1,
+      "research": {
+        "sourcing": [
+          {
+            "url": "https://www.aliexpress.com/item/1005007342221792.html?pdp_npi=6%40dis%21USD%218.56%214.79%21%21%2157.94%2132.45%21%402151fce817794259944148870e0f14%2112000040344397854%21affd%21%21%21%211%210%21",
+            "price": "$4.79",
+            "vendor": "AliExpress"
+          },
+          {
+            "url": "https://www.amazon.com/dp/B09KZR37KG?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "price": "$74.98",
+            "vendor": "Amazon"
+          },
+          {
+            "url": "https://www.adafruit.com/product/1220",
+            "price": "$4.95",
+            "vendor": "Adafruit"
+          },
+          {
+            "url": "https://www.amazon.com/dp/B0CNKSJYB7?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "price": "$75.99",
+            "vendor": "Amazon"
+          }
+        ],
+        "documentationUrls": [
+          {
+            "url": "https://www.adafruit.com/product/1220",
+            "title": "Product Page (Adafruit)"
+          }
+        ]
+      },
+      "dimensions": "20x20x200mm",
+      "description": "Rear vertical support for mounting components in Tower B.",
+      "productName": "Aluminum Extrusion 2020",
+      "purchaseUrl": "https://www.adafruit.com/product/1220",
+      "aliexpressUrl": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxRqFVjHhN7BMa8V4600PsYXXFaO58iUrUpszTZvwONHt2Vv9OY6dMIZNOoSso6r0N9iYIQiKxAobhiYArMzUto21vOJjIa85zlZeEKGEreHzOVDyPVLIbQLcwH1BiijViCrsGBWEkITFR7I36kKQxANRmHqkX0MZuxeV67v4Gw80r98aO6iyqQxiqAHaVDlkOTcqg55PLFf3LGQAFFrRPrbXD4Mxr9Ji8PhtnrYdDrsldisWw7FbUoEOpC0nGxt2xYq64qxW6prIhmHWv3nNGKg3EU9e9EjBvwEVCEq1OwFcYC5a07nqUSiAvVkGjHVvuEevOToB8pnEPhA9i9ekU54QrKCUyjipkZfbAHytO1a9IB8QtyiYG8rN0PrEGLzysZmoSTgIR8E47kwTNtkRhF3qW6DBoMPwZnDgNRhb3sayx4NzdycG0ElhYe2tEz6obPGjKU35GF4l6OPjyEAwZdySmvX40EMvbbvvS57ODLM6JAbxyW60GFQoUGprMHbCJUE0PJYdA7E5wUnZeybo4Chx0NsOHfvCHwMJq5dgyJxAWdYZ1ECGbZrBcAZ3obQgKar2FwQXMoJOoP5LUV1THd7Rn9GRyAtUxEXzwvAcSsmtThonVCdkbITVcbtbixU1EjALeAIFDIxGWtag72mMJNd1",
+      "estimatedCost": 5,
+      "amazonUrl": "https://www.amazon.com/dp/B09KZR37KG?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+      "boundingBox": {
+        "width": 20,
+        "height": 200,
+        "depth": 20
+      },
+      "position3d": {
+        "x": 190,
+        "y": 105,
+        "z": 110
+      }
+    },
+    {
+      "id": "bypass_enclosure",
+      "name": "Bypass Switch Enclosure",
+      "type": "enclosure",
+      "partId": "a5c43fb7-b7c6-4232-ad25-b6ef8edc7cca",
+      "ebayUrl": "https://www.ebay.com/sch/i.html?_nkw=ABS+Project+Box&_sacat=0&_from=R40&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339153059&customid=blueprint&toolid=10001&mkevt=1",
+      "category": "mechanical",
+      "imageUrl": "https://m.media-amazon.com/images/I/310tp79WjdL._SL500_.jpg",
+      "material": "ABS Plastic",
+      "quantity": 1,
+      "research": {
+        "sourcing": [
+          {
+            "url": "https://www.amazon.com/dp/B08N1DD5WJ?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "price": "$9.99",
+            "vendor": "Amazon"
+          },
+          {
+            "url": "https://www.aliexpress.com/item/1005006900224809.html?pdp_npi=6%40dis%21USD%219.21%212.95%21%21%2162.26%2119.92%21%4021013cc017793920569997670e10e4%2112000039272244280%21affd%21%21%21%211%210%21",
+            "price": "$2.95",
+            "vendor": "AliExpress"
+          }
+        ]
+      },
+      "amazonUrl": "https://www.amazon.com/dp/B08N1DD5WJ?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+      "dimensions": "80x60x40mm",
+      "description": "Small plastic enclosure for the bypass switch and bulb wiring.",
+      "productName": "ABS Project Box",
+      "purchaseUrl": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxgXqxTzdpKyAuKvJ9iQ5K6xY7w7wrIKQYQF1rBJQRbb55lJN25a05sbqVODhjoqtCY0RnvMyzmoUh759Dr0Xml2ZO89LwpfFt27bbXNmnBxY9EdEkQwInR4tEfQlFwqQZCIb8K2VLsEO0hED52D85gyUJUJpUrFI7YJQwqus3wt3uVnZ9Nfrwv7Vs7GkpArTYpLIEoMtGXgdiVr0a98M1IrSNqU4clPhcX251DQtajsFezhiE87CbbSvBuDYH2muaEwb4CqLLdeEiuiZmdcmJ0jrAojKqyLOAQjdRmngXzztvx8m5RBOmSt78XbRBj82BZGZcvHb4EO1JPGl3rmVoYHpcJQBXy1xUQy8YMl2b2NRWLEgJJ2hUCX7QMxyDHFJ5iIuJ1q4HiWaobY8W32BQ3yCF8HBIp44wNpH5GwpuDkiYgAZwlU1HSXjOGHMxwY0yz8yO3vLPVFqRE6qyqt3qklR6tOVtpdTSYuxqVYlSe1FciGI6uqoDKEpZ7zYTpM1CMP9gl5Rc9RS40OrPQp02hZnUBoxZlyxAYiDzMFvUDCaMbwru7Jtz5X6gMHCnDx3Y8OLAR4RqCY7JHVggQ5I6hK94cr1WDXbiQWynNMkTMBPy25AfY4uuDEf4QRjcJYSwvBTTMm02DP6F5j8bfj6eynh",
+      "aliexpressUrl": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxgXqxTzdpKyAuKvJ9iQ5K6xY7w7wrIKQYQF1rBJQRbb55lJN25a05sbqVODhjoqtCY0RnvMyzmoUh759Dr0Xml2ZO89LwpfFt27bbXNmnBxY9EdEkQwInR4tEfQlFwqQZCIb8K2VLsEO0hED52D85gyUJUJpUrFI7YJQwqus3wt3uVnZ9Nfrwv7Vs7GkpArTYpLIEoMtGXgdiVr0a98M1IrSNqU4clPhcX251DQtajsFezhiE87CbbSvBuDYH2muaEwb4CqLLdeEiuiZmdcmJ0jrAojKqyLOAQjdRmngXzztvx8m5RBOmSt78XbRBj82BZGZcvHb4EO1JPGl3rmVoYHpcJQBXy1xUQy8YMl2b2NRWLEgJJ2hUCX7QMxyDHFJ5iIuJ1q4HiWaobY8W32BQ3yCF8HBIp44wNpH5GwpuDkiYgAZwlU1HSXjOGHMxwY0yz8yO3vLPVFqRE6qyqt3qklR6tOVtpdTSYuxqVYlSe1FciGI6uqoDKEpZ7zYTpM1CMP9gl5Rc9RS40OrPQp02hZnUBoxZlyxAYiDzMFvUDCaMbwru7Jtz5X6gMHCnDx3Y8OLAR4RqCY7JHVggQ5I6hK94cr1WDXbiQWynNMkTMBPy25AfY4uuDEf4QRjcJYSwvBTTMm02DP6F5j8bfj6eynh",
+      "estimatedCost": 6.5,
+      "boundingBox": {
+        "width": 80,
+        "height": 40,
+        "depth": 60
+      },
+      "position3d": {
+        "x": 305,
+        "y": 140,
+        "z": 105
+      }
+    },
+    {
+      "id": "esp32_grid_mount",
+      "name": "Grid ESP32 Mount",
+      "type": "3d_printed",
+      "category": "mechanical",
+      "material": "PLA",
+      "quantity": 1,
+      "mountsFor": "esp32_grid_controller",
+      "dimensions": "65x30x10mm",
+      "description": "3D-printed mount for the ESP32 microcontroller in Tower A.",
+      "purchaseUrl": "https://www.amazon.com/s?k=PLA+filament",
+      "estimatedCost": 0.5,
+      "printSettings": "20% infill, 0.2mm layer",
+      "boundingBox": {
+        "width": 65,
+        "height": 10,
+        "depth": 30
+      },
+      "position3d": {
+        "x": 60,
+        "y": 165,
+        "z": 45
+      }
+    },
+    {
+      "id": "esp32_house_mount",
+      "name": "House ESP32 Mount",
+      "type": "3d_printed",
+      "category": "mechanical",
+      "material": "PLA",
+      "quantity": 1,
+      "mountsFor": "esp32_house_monitor",
+      "dimensions": "65x30x10mm",
+      "description": "3D-printed mount for the ESP32 microcontroller in Tower B.",
+      "purchaseUrl": "https://www.amazon.com/s?k=PLA+filament",
+      "estimatedCost": 0.5,
+      "printSettings": "20% infill, 0.2mm layer",
+      "boundingBox": {
+        "width": 65,
+        "height": 10,
+        "depth": 30
+      },
+      "position3d": {
+        "x": 220,
+        "y": 165,
+        "z": 45
+      }
+    },
+    {
+      "id": "acs712_grid_mount",
+      "name": "Grid Current Sensor Mount",
+      "type": "3d_printed",
+      "category": "mechanical",
+      "material": "PLA",
+      "quantity": 1,
+      "mountsFor": "acs712_grid_sensor",
+      "dimensions": "40x20x15mm",
+      "description": "3D-printed mount for the ACS712 current sensor in Tower A.",
+      "purchaseUrl": "https://www.amazon.com/s?k=PLA+filament",
+      "estimatedCost": 0.3,
+      "printSettings": "20% infill, 0.2mm layer",
+      "boundingBox": {
+        "width": 40,
+        "height": 15,
+        "depth": 20
+      },
+      "position3d": {
+        "x": 60,
+        "y": 92.5,
+        "z": 30
+      }
+    },
+    {
+      "id": "acs712_house_mount",
+      "name": "House Current Sensor Mount",
+      "type": "3d_printed",
+      "category": "mechanical",
+      "material": "PLA",
+      "quantity": 1,
+      "mountsFor": "acs712_house_sensor",
+      "dimensions": "40x20x15mm",
+      "description": "3D-printed mount for the ACS712 current sensor in Tower B.",
+      "purchaseUrl": "https://www.amazon.com/s?k=PLA+filament",
+      "estimatedCost": 0.3,
+      "printSettings": "20% infill, 0.2mm layer",
+      "boundingBox": {
+        "width": 40,
+        "height": 15,
+        "depth": 20
+      },
+      "position3d": {
+        "x": 220,
+        "y": 92.5,
+        "z": 30
+      }
+    },
+    {
+      "id": "relay_power_cut_mount",
+      "name": "Power Cutoff Relay Mount",
+      "type": "3d_printed",
+      "category": "mechanical",
+      "material": "PLA",
+      "quantity": 1,
+      "mountsFor": "relay_power_cut",
+      "dimensions": "70x20x15mm",
+      "description": "3D-printed mount for the single-channel relay module in Tower A.",
+      "purchaseUrl": "https://www.amazon.com/s?k=PLA+filament",
+      "estimatedCost": 0.4,
+      "printSettings": "20% infill, 0.2mm layer",
+      "boundingBox": {
+        "width": 70,
+        "height": 15,
+        "depth": 20
+      },
+      "position3d": {
+        "x": 60,
+        "y": 127.5,
+        "z": 40
+      }
+    },
+    {
+      "id": "lcd_display_bezel",
+      "name": "LCD Display Bezel/Mount",
+      "type": "3d_printed",
+      "category": "mechanical",
+      "material": "PLA",
+      "quantity": 1,
+      "mountsFor": "lcd_display",
+      "dimensions": "100x40x10mm",
+      "description": "3D-printed bezel and mount for the 16x2/20x4 LCD display in Tower A.",
+      "purchaseUrl": "https://www.amazon.com/s?k=PLA+filament",
+      "estimatedCost": 0.6,
+      "printSettings": "20% infill, 0.2mm layer",
+      "boundingBox": {
+        "width": 100,
+        "height": 10,
+        "depth": 40
+      },
+      "position3d": {
+        "x": 60,
+        "y": 205,
+        "z": 40
+      }
+    },
+    {
+      "id": "buzzer_alarm_mount",
+      "name": "Buzzer Alarm Mount",
+      "type": "3d_printed",
+      "category": "mechanical",
+      "material": "PLA",
+      "quantity": 1,
+      "mountsFor": "buzzer_alarm",
+      "dimensions": "20x20x10mm",
+      "description": "3D-printed mount for the small buzzer in Tower A.",
+      "purchaseUrl": "https://www.amazon.com/s?k=PLA+filament",
+      "estimatedCost": 0.15,
+      "printSettings": "20% infill, 0.2mm layer",
+      "boundingBox": {
+        "width": 20,
+        "height": 10,
+        "depth": 20
+      },
+      "position3d": {
+        "x": 105,
+        "y": 166,
+        "z": 35
+      }
+    },
+    {
+      "id": "dc_power_supply_mount",
+      "name": "DC Power Supply Mount",
+      "type": "3d_printed",
+      "category": "mechanical",
+      "material": "PLA",
+      "quantity": 1,
+      "mountsFor": "dc_power_supply",
+      "dimensions": "60x40x20mm",
+      "description": "3D-printed mount for the 5V DC power supply module.",
+      "purchaseUrl": "https://www.amazon.com/s?k=PLA+filament",
+      "estimatedCost": 0.4,
+      "printSettings": "20% infill, 0.2mm layer",
+      "boundingBox": {
+        "width": 60,
+        "height": 20,
+        "depth": 40
+      },
+      "position3d": {
+        "x": 60,
+        "y": 160,
+        "z": 130
+      }
+    },
+    {
+      "id": "bulb_holder_authorized",
+      "name": "Authorized Bulb Holder",
+      "type": "misc",
+      "partId": "a4843503-dee5-4c6e-b243-786c96b1789f",
+      "ebayUrl": "https://www.ebay.com/sch/i.html?_nkw=E27+Lamp+Holder&_sacat=0&_from=R40&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339153059&customid=blueprint&toolid=10001&mkevt=1",
+      "category": "mechanical",
+      "imageUrl": "https://ae-pic-a1.aliexpress-media.com/kf/S9ab90fea5eec406e9a56b8c85fe7333a0.jpg",
+      "quantity": 1,
+      "research": {
+        "sourcing": [
+          {
+            "url": "",
+            "vendor": "Amazon"
+          },
+          {
+            "url": "https://www.aliexpress.com/item/1005008041316139.html?pdp_npi=6%40dis%21USD%2112.71%214.19%21%21%2185.85%2128.33%21%402102f1cd17809418734098635e105e%2112000043383737371%21affd%21%21%21%211%210%21",
+            "price": "$4.19",
+            "vendor": "AliExpress"
+          }
+        ]
+      },
+      "amazonUrl": null,
+      "dimensions": "70x40x40mm",
+      "description": "Screw-in lamp holder for the 100W authorized household bulb.",
+      "productName": "E27 Lamp Holder",
+      "purchaseUrl": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxwWDb99jCiSXFS6oKcir4CpzwLkvffBNmbGH4bkx0QKd2PHWeYmMuOkthofQ3c0M4vtJlEZRov2N3p88pezlTNKmX8jaNRtst0plsEjP4ec7TKPl5jXzfYMpyEJIqjET5KpUvccIAHhv6f2LYluEhb3thdPuBaXzDkavlnava5vphWU4fvvx2SlcIK4359WgVm5cQlQKhXQLlnOPYBPYW7TQ4sHxbDfKVzUzzmn97lBqjwtQqlkfyaarOlEMftZmndjHJtVRLy5ayw36O0EqnxdvX45j1hfeUwY8CaoxCORkmFeKrwPOq8BfnWffvHQgj1FafBuSdNPh8jJVD5k7JDRUVXibTZk7yjl2qJNSQqDvLUcNPWgKBZ76fwWzVEOmt18GeQgXnkdKVHBs9dPxnddD3B1MJUBght0K5ZWESm6WmkyJCgwMxvls4ccZ9qCbwbRNRb0m5n6KBAMLkz6qV0WdZTz0JN9kD75uDtnpBPxnzvldde4JXVOSNJb9pDBoRy0Tw2RcRGFcYglgLIPBp6QniTEaPwsNISKPt5pJyGcOX8wOtLqbdPWz35xh5BPOnfAazNbTAn9jXv3WrhEMvpJolLv2Op4vWQ7xPLsPPVP7kn7o3R01P1uHPfm5AX2PkCJqcjaivXLEWHyzUS2s83S7",
+      "aliexpressUrl": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxwWDb99jCiSXFS6oKcir4CpzwLkvffBNmbGH4bkx0QKd2PHWeYmMuOkthofQ3c0M4vtJlEZRov2N3p88pezlTNKmX8jaNRtst0plsEjP4ec7TKPl5jXzfYMpyEJIqjET5KpUvccIAHhv6f2LYluEhb3thdPuBaXzDkavlnava5vphWU4fvvx2SlcIK4359WgVm5cQlQKhXQLlnOPYBPYW7TQ4sHxbDfKVzUzzmn97lBqjwtQqlkfyaarOlEMftZmndjHJtVRLy5ayw36O0EqnxdvX45j1hfeUwY8CaoxCORkmFeKrwPOq8BfnWffvHQgj1FafBuSdNPh8jJVD5k7JDRUVXibTZk7yjl2qJNSQqDvLUcNPWgKBZ76fwWzVEOmt18GeQgXnkdKVHBs9dPxnddD3B1MJUBght0K5ZWESm6WmkyJCgwMxvls4ccZ9qCbwbRNRb0m5n6KBAMLkz6qV0WdZTz0JN9kD75uDtnpBPxnzvldde4JXVOSNJb9pDBoRy0Tw2RcRGFcYglgLIPBp6QniTEaPwsNISKPt5pJyGcOX8wOtLqbdPWz35xh5BPOnfAazNbTAn9jXv3WrhEMvpJolLv2Op4vWQ7xPLsPPVP7kn7o3R01P1uHPfm5AX2PkCJqcjaivXLEWHyzUS2s83S7",
+      "estimatedCost": 3,
+      "boundingBox": {
+        "width": 70,
+        "height": 40,
+        "depth": 40
+      },
+      "position3d": {
+        "x": 220,
+        "y": 100,
+        "z": 80
+      }
+    },
+    {
+      "id": "bulb_holder_bypass",
+      "name": "Bypass Bulb Holder",
+      "type": "misc",
+      "partId": "a4843503-dee5-4c6e-b243-786c96b1789f",
+      "ebayUrl": "https://www.ebay.com/sch/i.html?_nkw=E27+Lamp+Holder&_sacat=0&_from=R40&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339153059&customid=blueprint&toolid=10001&mkevt=1",
+      "category": "mechanical",
+      "imageUrl": "https://ae-pic-a1.aliexpress-media.com/kf/S9ab90fea5eec406e9a56b8c85fe7333a0.jpg",
+      "quantity": 1,
+      "research": {
+        "sourcing": [
+          {
+            "url": "",
+            "vendor": "Amazon"
+          },
+          {
+            "url": "https://www.aliexpress.com/item/1005008041316139.html?pdp_npi=6%40dis%21USD%2112.71%214.19%21%21%2185.85%2128.33%21%402102f1cd17809418734098635e105e%2112000043383737371%21affd%21%21%21%211%210%21",
+            "price": "$4.19",
+            "vendor": "AliExpress"
+          }
+        ]
+      },
+      "amazonUrl": null,
+      "dimensions": "70x40x40mm",
+      "description": "Screw-in lamp holder for the 100W bypass theft simulation bulb.",
+      "productName": "E27 Lamp Holder",
+      "purchaseUrl": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxwWDb99jCiSXFS6oKcir4CpzwLkvffBNmbGH4bkx0QKd2PHWeYmMuOkthofQ3c0M4vtJlEZRov2N3p88pezlTNKmX8jaNRtst0plsEjP4ec7TKPl5jXzfYMpyEJIqjET5KpUvccIAHhv6f2LYluEhb3thdPuBaXzDkavlnava5vphWU4fvvx2SlcIK4359WgVm5cQlQKhXQLlnOPYBPYW7TQ4sHxbDfKVzUzzmn97lBqjwtQqlkfyaarOlEMftZmndjHJtVRLy5ayw36O0EqnxdvX45j1hfeUwY8CaoxCORkmFeKrwPOq8BfnWffvHQgj1FafBuSdNPh8jJVD5k7JDRUVXibTZk7yjl2qJNSQqDvLUcNPWgKBZ76fwWzVEOmt18GeQgXnkdKVHBs9dPxnddD3B1MJUBght0K5ZWESm6WmkyJCgwMxvls4ccZ9qCbwbRNRb0m5n6KBAMLkz6qV0WdZTz0JN9kD75uDtnpBPxnzvldde4JXVOSNJb9pDBoRy0Tw2RcRGFcYglgLIPBp6QniTEaPwsNISKPt5pJyGcOX8wOtLqbdPWz35xh5BPOnfAazNbTAn9jXv3WrhEMvpJolLv2Op4vWQ7xPLsPPVP7kn7o3R01P1uHPfm5AX2PkCJqcjaivXLEWHyzUS2s83S7",
+      "aliexpressUrl": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxwWDb99jCiSXFS6oKcir4CpzwLkvffBNmbGH4bkx0QKd2PHWeYmMuOkthofQ3c0M4vtJlEZRov2N3p88pezlTNKmX8jaNRtst0plsEjP4ec7TKPl5jXzfYMpyEJIqjET5KpUvccIAHhv6f2LYluEhb3thdPuBaXzDkavlnava5vphWU4fvvx2SlcIK4359WgVm5cQlQKhXQLlnOPYBPYW7TQ4sHxbDfKVzUzzmn97lBqjwtQqlkfyaarOlEMftZmndjHJtVRLy5ayw36O0EqnxdvX45j1hfeUwY8CaoxCORkmFeKrwPOq8BfnWffvHQgj1FafBuSdNPh8jJVD5k7JDRUVXibTZk7yjl2qJNSQqDvLUcNPWgKBZ76fwWzVEOmt18GeQgXnkdKVHBs9dPxnddD3B1MJUBght0K5ZWESm6WmkyJCgwMxvls4ccZ9qCbwbRNRb0m5n6KBAMLkz6qV0WdZTz0JN9kD75uDtnpBPxnzvldde4JXVOSNJb9pDBoRy0Tw2RcRGFcYglgLIPBp6QniTEaPwsNISKPt5pJyGcOX8wOtLqbdPWz35xh5BPOnfAazNbTAn9jXv3WrhEMvpJolLv2Op4vWQ7xPLsPPVP7kn7o3R01P1uHPfm5AX2PkCJqcjaivXLEWHyzUS2s83S7",
+      "estimatedCost": 3,
+      "boundingBox": {
+        "width": 70,
+        "height": 40,
+        "depth": 40
+      },
+      "position3d": {
+        "x": 305,
+        "y": 160,
+        "z": 105
+      }
+    },
+    {
+      "id": "m3_screws_short",
+      "name": "M3x8mm Screws",
+      "type": "misc",
+      "partId": "50f5ecb1-c39f-4c9f-bdc2-eeec2a7445e9",
+      "ebayUrl": "https://www.ebay.com/sch/i.html?_nkw=M3x8mm+Pan+Head+Screws&_sacat=0&_from=R40&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339153059&customid=blueprint&toolid=10001&mkevt=1",
+      "category": "mechanical",
+      "imageUrl": "https://m.media-amazon.com/images/I/41O-eByXK-S._SL500_.jpg",
+      "material": "Stainless Steel",
+      "quantity": 20,
+      "research": {
+        "specs": [
+          {
+            "label": "material",
+            "value": "Stainless Steel"
+          },
+          {
+            "label": "head_type",
+            "value": "Pan"
+          },
+          {
+            "label": "length_mm",
+            "value": "8"
+          },
+          {
+            "label": "drive_type",
+            "value": "Phillips"
+          },
+          {
+            "label": "screw_type",
+            "value": "Machine Screw"
+          },
+          {
+            "label": "thread_size",
+            "value": "M3"
+          },
+          {
+            "label": "mcmaster_url",
+            "value": "https://www.mcmaster.com/92000A118"
+          },
+          {
+            "label": "rohs_compliant",
+            "value": "true"
+          },
+          {
+            "label": "mcmaster_part_number",
+            "value": "92000A118"
+          }
+        ],
+        "sourcing": [
+          {
+            "url": "https://www.mcmaster.com/92000A118",
+            "vendor": "McMaster-Carr"
+          },
+          {
+            "url": "https://www.ebay.com/itm/145224447118",
+            "price": "$19.99",
+            "vendor": "eBay"
+          },
+          {
+            "url": "https://www.aliexpress.com/w/wholesale-m3x8mm-pan-head-screws.html",
+            "vendor": "AliExpress"
+          },
+          {
+            "url": "https://www.amazon.com/dp/B01BBOZGKC?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "price": "$6.59",
+            "vendor": "Amazon"
+          }
+        ]
+      },
+      "amazonUrl": "https://www.amazon.com/dp/B01BBOZGKC?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+      "dimensions": "M3x8mm",
+      "description": "Short M3 screws for mounting smaller components and 3D prints.",
+      "productName": "M3x8mm Pan Head Screws",
+      "purchaseUrl": "https://www.ebay.com/itm/145224447118",
+      "aliexpressUrl": "https://s.click.aliexpress.com/e/_c4PSvvg1",
+      "estimatedCost": 0.05
+    },
+    {
+      "id": "m3_screws_long",
+      "name": "M3x12mm Screws",
+      "type": "misc",
+      "partId": "40545c90-fdf1-4a07-8f2d-c15443cd02b6",
+      "ebayUrl": "https://www.ebay.com/sch/i.html?_nkw=M3x12mm+Pan+Head+Screws&_sacat=0&_from=R40&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339153059&customid=blueprint&toolid=10001&mkevt=1",
+      "category": "mechanical",
+      "imageUrl": "https://m.media-amazon.com/images/I/51EgeJVqBnL._SL500_.jpg",
+      "quantity": 12,
+      "research": {
+        "sourcing": [
+          {
+            "url": "https://www.amazon.com/dp/B07MHNXPJL?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "price": "$8.79",
+            "vendor": "Amazon"
+          },
+          {
+            "url": "https://www.aliexpress.com/w/wholesale-m3x12mm-pan-head-screws.html",
+            "vendor": "AliExpress"
+          },
+          {
+            "url": "https://www.amazon.com/dp/B0CGVF58LL?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "price": "$6.99",
+            "vendor": "Amazon"
+          }
+        ]
+      },
+      "amazonUrl": "https://www.amazon.com/dp/B07MHNXPJL?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+      "dimensions": "M3x12mm",
+      "description": "Longer M3 screws for mounting through acrylic or into aluminum extrusions.",
+      "productName": "M3x12mm Pan Head Screws",
+      "purchaseUrl": "https://www.amazon.com/dp/B0CGVF58LL?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+      "aliexpressUrl": "https://s.click.aliexpress.com/e/_c4c6rIJx",
+      "estimatedCost": 0.06
+    },
+    {
+      "id": "m3_nuts",
+      "name": "M3 Nuts",
+      "type": "misc",
+      "partId": "c3dca189-2353-43a1-b760-66b6cefe0032",
+      "ebayUrl": "https://www.ebay.com/sch/i.html?_nkw=M3+Hex+Nuts&_sacat=0&_from=R40&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339153059&customid=blueprint&toolid=10001&mkevt=1",
+      "category": "mechanical",
+      "imageUrl": "https://m.media-amazon.com/images/I/31bFY16mChL._SL500_.jpg",
+      "quantity": 32,
+      "research": {
+        "specs": [
+          {
+            "label": "Material",
+            "value": "18-8 Stainless Steel"
+          },
+          {
+            "label": "Standard",
+            "value": "DIN 934"
+          },
+          {
+            "label": "Thread Size",
+            "value": "M3"
+          },
+          {
+            "label": "Thickness_mm",
+            "value": "2.4"
+          },
+          {
+            "label": "mcmaster_url",
+            "value": "https://www.mcmaster.com/90591A121"
+          },
+          {
+            "label": "Thread Pitch_mm",
+            "value": "0.5"
+          },
+          {
+            "label": "mcmaster_part_number",
+            "value": "90591A121"
+          },
+          {
+            "label": "Width Across Flats_mm",
+            "value": "5.5"
+          }
+        ],
+        "sourcing": [
+          {
+            "url": "https://www.amazon.com/dp/B0F9FC4563?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "price": "$5.99",
+            "vendor": "Amazon"
+          },
+          {
+            "url": "https://www.amazon.com/binifiMux-M1-6-Stainless-Steel-200pcs/dp/B08N68W9SP",
+            "vendor": "Amazon"
+          },
+          {
+            "url": "https://www.aliexpress.com/item/1005007278965396.html?pdp_npi=6%40dis%21USD%216.21%216.08%21%21%2142.11%2141.23%21%40210152bd17793266883568522e1214%2112000040076085093%21affd%21%21%21%211%210%21",
+            "price": "$6.08",
+            "vendor": "AliExpress"
+          },
+          {
+            "url": "https://accu-components.com/us/hexagon-nuts/7888-HPN-M3-A2",
+            "vendor": "Accu"
+          },
+          {
+            "url": "",
+            "vendor": "Amazon"
+          },
+          {
+            "url": "https://www.mcmaster.com/90591A121",
+            "vendor": "McMaster-Carr"
+          }
+        ],
+        "alternatives": [
+          {
+            "name": "MonsterBolts M3 Hex Nuts (A4/316 Stainless Steel)",
+            "reason": "Uses A4 (316) marine-grade stainless steel, which offers higher corrosion resistance than 18-8 (304) stainless steel, but is not the specified material."
+          }
+        ]
+      },
+      "amazonUrl": "https://www.amazon.com/dp/B0F9FC4563?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+      "dimensions": "M3",
+      "description": "Standard M3 hex nuts for securing screws.",
+      "productName": "M3 Hex Nuts",
+      "purchaseUrl": "https://www.amazon.com/dp/B0F9FC4563?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+      "aliexpressUrl": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxheLVocLOesSj3YW9HVKSsjAuk0dhY8YT34rvUc5SPCcgI4QR7M5m7vL2CF1qaBN4YJaX2QCpde3asIqUTPZ7VH9jKyimAosVWo9rG6TlCDaJUGpnvxlaPEscouM2pHiy6Zxvpv1xT7pzOx6Fyo1keQHGdNb57GbSrrLl71Nratjl21Ld7kva7BOr6PkrmoRWaWh55AYomtd8Z3yTq04PvrqlY5YBlai14Zqqm1nwp3TV2K5uxs0EGrCrPfu4GYI7jNaPISs01eXJf41jhf0QpknTJxW8qBL9GcWbb9hfTnLyftpwrbKqPnF8dvx4RHQkb8ZP8BSR81V5Fu45b5wJbrDhRnyjz0RXWL5BXkBaEs3ZSp7WOwJEtZ1t3tvABpapsuJRrQbLqHwt6h8T28IiiGvsb55OJKTAhaiBPwnBWGJ74IpYm6mf32wB3kuuhALc6jRTSWG3Df4XHqSsoXkfwwzvcYwbVm6PDdgzJw7MEBaWEkQwFos1EuzSOsU3IDiG7r2kJf7eV9aInWlTwQ977gk6Q27AfFEY984k1lgT40XJlTIWPlMvK7GlvY7giUmMRlsr4ETykxB2EQ9k6wlIDNTUesgVotiHHythHgqnxfbJyf5h6w0WqBMIGaF0R88Tm1iWPDGAkRtRFuY5ke41QIn",
+      "estimatedCost": 0.03
+    },
+    {
+      "id": "m3_standoffs_male_female",
+      "name": "M3x10mm Standoffs",
+      "type": "misc",
+      "partId": "e5d125bd-3756-401c-8c7f-e18f5df36b64",
+      "ebayUrl": "https://www.ebay.com/sch/i.html?_nkw=M3x10mm+Brass+Standoffs+Male-Female&_sacat=0&_from=R40&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339153059&customid=blueprint&toolid=10001&mkevt=1",
+      "category": "mechanical",
+      "imageUrl": "https://m.media-amazon.com/images/I/41O0ecEWzkL._SL500_.jpg",
+      "material": "Brass",
+      "quantity": 8,
+      "research": {
+        "sourcing": [
+          {
+            "url": "https://www.amazon.com/dp/B0FS28GPHX?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "price": "$8.26",
+            "vendor": "Amazon"
+          },
+          {
+            "url": "https://www.aliexpress.com/w/wholesale-m3x10mm-brass-standoffs-male-female.html",
+            "vendor": "AliExpress"
+          },
+          {
+            "url": "https://www.amazon.com/dp/B08F1X6ZL7?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "price": "$7.89",
+            "vendor": "Amazon"
+          }
+        ]
+      },
+      "amazonUrl": "https://www.amazon.com/dp/B0FS28GPHX?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+      "dimensions": "M3x10mm",
+      "description": "M3 male-female standoffs for stacking PCBs or creating clearance.",
+      "productName": "M3x10mm Brass Standoffs Male-Female",
+      "purchaseUrl": "https://www.amazon.com/dp/B08F1X6ZL7?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+      "aliexpressUrl": "https://s.click.aliexpress.com/e/_c4rDVDiV",
+      "estimatedCost": 0.15
+    },
+    {
+      "id": "bypass_switch_mount",
+      "name": "Theft Bypass Switch Mount",
+      "type": "3d_printed",
+      "category": "mechanical",
+      "material": "PETG",
+      "quantity": 1,
+      "mountsFor": "bypass_switch",
+      "dimensions": "50x40x12mm",
+      "description": "Adapter plate for the Theft Bypass Switch that bolts to the main chassis with M3 hardware. Includes wire-routing channels.",
+      "purchaseUrl": "",
+      "estimatedCost": 2,
+      "printSettings": "30% infill, 0.2mm layer, 4 perimeters",
+      "boundingBox": {
+        "width": 50,
+        "height": 12,
+        "depth": 40
+      },
+      "position3d": {
+        "x": 305,
+        "y": 164,
+        "z": 105
+      }
+    },
+    {
+      "id": "ac_input_terminal",
+      "name": "AC Input Terminal Block",
+      "productName": "2 Pin Screw Terminal Block 250V 10A",
+      "category": "electrical",
+      "type": "module",
+      "quantity": 1,
+      "estimatedCost": 1,
+      "purchaseUrl": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxqK852QzX3yGk7fR5M9m2Y0qJ6XqU45eB6o0j7xL3i2Q1uW4f5g6m7k8n9o0p1t2v3x4y5z",
+      "description": "Terminal block for connecting the main AC input power.",
+      "pins": [
+        "L_IN",
+        "N_IN"
+      ],
+      "ebayUrl": "https://www.ebay.com/sch/i.html?_nkw=2+Pin+Screw+Terminal+Block+250V+10A&_sacat=0&_from=R40&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339153059&customid=blueprint&toolid=10001&mkevt=1",
+      "imageUrl": "https://cdn-shop.adafruit.com/640x480/2138-04.jpg",
+      "boundingBox": {
+        "width": 30,
+        "height": 15,
+        "depth": 20
+      },
+      "position3d": {
+        "x": 75,
+        "y": 12.5,
+        "z": 40
+      }
+    },
+    {
+      "id": "bulb_ac_authorized",
+      "name": "Authorized AC Bulb",
+      "productName": "E27 100W Incandescent Bulb",
+      "category": "electrical",
+      "type": "module",
+      "quantity": 1,
+      "estimatedCost": 2,
+      "purchaseUrl": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxqK852QzX3yGk7fR5M9m2Y0qJ6XqU45eB6o0j7xL3i2Q1uW4f5g6m7k8n9o0p1t2v3x4y5z",
+      "description": "Simulated authorized household AC load (e.g., 100W light bulb).",
+      "pins": [
+        "L",
+        "N"
+      ],
+      "ebayUrl": "https://www.ebay.com/sch/i.html?_nkw=E27+100W+Incandescent+Bulb&_sacat=0&_from=R40&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339153059&customid=blueprint&toolid=10001&mkevt=1",
+      "imageUrl": "https://m.media-amazon.com/images/I/4115lg467BL._SL500_.jpg",
+      "boundingBox": {
+        "width": 60,
+        "height": 110,
+        "depth": 60
+      },
+      "position3d": {
+        "x": 220,
+        "y": 180,
+        "z": 80
+      }
+    },
+    {
+      "id": "bulb_ac_bypass",
+      "name": "Bypass AC Bulb",
+      "productName": "E27 100W Incandescent Bulb",
+      "category": "electrical",
+      "type": "module",
+      "quantity": 1,
+      "estimatedCost": 2,
+      "purchaseUrl": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxqK852QzX3yGk7fR5M9m2Y0qJ6XqU45eB6o0j7xL3i2Q1uW4f5g6m7k8n9o0p1t2v3x4y5z",
+      "description": "Simulated power theft AC load (e.g., 100W light bulb).",
+      "pins": [
+        "L",
+        "N"
+      ],
+      "ebayUrl": "https://www.ebay.com/sch/i.html?_nkw=E27+100W+Incandescent+Bulb&_sacat=0&_from=R40&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339153059&customid=blueprint&toolid=10001&mkevt=1",
+      "imageUrl": "https://m.media-amazon.com/images/I/4115lg467BL._SL500_.jpg",
+      "boundingBox": {
+        "width": 60,
+        "height": 110,
+        "depth": 60
+      },
+      "position3d": {
+        "x": 305,
+        "y": 210,
+        "z": 105
+      }
+    },
+    {
+      "id": "ac_wire_grid_live",
+      "name": "AC Wire (Grid Live)",
+      "productName": "18 AWG Stranded Wire",
+      "category": "electrical",
+      "type": "misc",
+      "quantity": 1,
+      "estimatedCost": 0.5,
+      "purchaseUrl": "https://www.amazon.com/dp/B08V579K99?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+      "description": "Wire for Live AC connections.",
+      "pins": [],
+      "ebayUrl": "https://www.ebay.com/sch/i.html?_nkw=18+AWG+Stranded+Wire&_sacat=0&_from=R40&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339153059&customid=blueprint&toolid=10001&mkevt=1",
+      "imageUrl": "https://ae-pic-a1.aliexpress-media.com/kf/Sfd0c6dcf31b1465c89c1c2189161e584q.jpg"
+    },
+    {
+      "id": "ac_wire_grid_neutral",
+      "name": "AC Wire (Grid Neutral)",
+      "productName": "18 AWG Stranded Wire",
+      "category": "electrical",
+      "type": "misc",
+      "quantity": 1,
+      "estimatedCost": 0.5,
+      "purchaseUrl": "https://www.amazon.com/dp/B08V579K99?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+      "description": "Wire for Neutral AC connections.",
+      "pins": [
+        "N"
+      ],
+      "ebayUrl": "https://www.ebay.com/sch/i.html?_nkw=18+AWG+Stranded+Wire&_sacat=0&_from=R40&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339153059&customid=blueprint&toolid=10001&mkevt=1",
+      "imageUrl": "https://ae-pic-a1.aliexpress-media.com/kf/Sfd0c6dcf31b1465c89c1c2189161e584q.jpg"
+    }
+  ],
+  "notes": [
+    "IoT-based system",
+    "Power theft detection",
+    "Two-tower structure",
+    "Real-time monitoring",
+    "Automated power cutoff",
+    "Cloud logging"
+  ],
+  "projectName": "Spark Safe Stream",
+  "originalPrompt": "Spark Safe Stream is an active IoT-based power theft detection system designed to monitor grid supply against authorized loads, making it a perfect, high-impact demonstration for the Smart India Hackathon.\n​Here is how the project works conceptually and physically:\n​The Core Concept\nThe system relies on a simple law of physics: the electrical current leaving the grid must exactly match the current arriving at the authorized destination. To demonstrate this, the prototype uses a two-tower structure. Tower A represents the utility grid (the source), equipped with an ESP32 microcontroller, an ACS712 current sensor, a relay module, and an LCD display. Tower B represents the authorized household (the destination), wired with a second ACS712 current sensor and a glowing yellow 100-watt bulb.\n​Normal Operation\nUnder normal conditions, the current sensor at the grid source reads the exact same power draw as the sensor at the house. The LCD display continuously updates with real-time power readings, showing matching values (e.g., \"Grid: 100W | House: 100W | Status: SECURE\").\n​Theft Detection and Intervention\nBetween the two towers is an unauthorized \"bypass\" wire connected to a second yellow 100-watt bulb. When a manual switch is flipped to turn on this bypass bulb, it simulates an illegal line tap—drawing electricity directly from the grid before it reaches the house's official meter.\n​Instantly, the grid sensor (Tower A) detects a spike in current, while the house sensor (Tower B) remains unchanged. The ESP32 calculates this mathematical mismatch. The moment the current differential crosses the allowed threshold, the system takes automated action:\n​Visual Alert: The LCD screen immediately updates to read \"THEFT DETECTED\" and displays the exact amount of unauthorized power being drawn.\n​Audible Alarm: The local buzzer sounds a rapid warning to act as a physical deterrent.\n​Grid Protection: The ESP32 triggers the relay to physically cut the power line, instantly turning off the yellow bulbs and stopping the active theft.\n​Cloud Logging: The event data (including the time and power differential) is pushed to an IoT dashboard so the utility company can investigate the exact node that was compromised.\n​Instead of passively waiting for a monthly billing discrepancy to realize energy was stolen, this setup proves how a smart grid can catch a theft in real-time and shut it down automatically.",
+  "instructionSteps": [
+    {
+      "id": "fabricate",
+      "subSteps": [
+        {
+          "id": "fabricate_1",
+          "title": "3D print all component mounts and enclosures",
+          "partIds": [
+            "esp32_grid_mount",
+            "esp32_house_mount",
+            "acs712_grid_mount",
+            "acs712_house_mount",
+            "relay_power_cut_mount",
+            "lcd_display_bezel",
+            "buzzer_alarm_mount",
+            "dc_power_supply_mount",
+            "bypass_switch_mount",
+            "bypass_enclosure"
+          ]
+        },
+        {
+          "id": "fabricate_2",
+          "title": "Prepare mechanical supports and base plates",
+          "partIds": [
+            "tower_a_base_plate",
+            "tower_b_base_plate",
+            "tower_a_vertical_support_front",
+            "tower_a_vertical_support_back",
+            "tower_b_vertical_support_front",
+            "tower_b_vertical_support_back"
+          ]
+        },
+        {
+          "id": "fabricate_3",
+          "title": "Install bypass switch into its 3D printed mount",
+          "partIds": [
+            "bypass_switch",
+            "bypass_switch_mount",
+            "m3_screws_short"
+          ]
+        },
+        {
+          "id": "fabricate_4",
+          "title": "Install LCD Display into its 3D printed bezel",
+          "partIds": [
+            "lcd_display",
+            "lcd_display_bezel"
+          ]
+        },
+        {
+          "id": "fabricate_5",
+          "title": "Install other electrical components into their respective 3D printed mounts",
+          "partIds": [
+            "esp32_grid_controller",
+            "esp32_grid_mount",
+            "esp32_house_monitor",
+            "esp32_house_mount",
+            "acs712_grid_sensor",
+            "acs712_grid_mount",
+            "acs712_house_sensor",
+            "acs712_house_mount",
+            "relay_power_cut",
+            "relay_power_cut_mount",
+            "buzzer_alarm",
+            "buzzer_alarm_mount",
+            "dc_power_supply",
+            "dc_power_supply_mount"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wire",
+      "subSteps": [
+        {
+          "id": "wire_1",
+          "title": "Wire 5V DC power supply to both ESP32 boards",
+          "partIds": [
+            "dc_power_supply",
+            "esp32_grid_controller",
+            "esp32_house_monitor"
+          ]
+        },
+        {
+          "id": "wire_2",
+          "title": "Connect Grid Current Sensor to Grid Controller ESP32",
+          "partIds": [
+            "esp32_grid_controller",
+            "acs712_grid_sensor"
+          ]
+        },
+        {
+          "id": "wire_3",
+          "title": "Connect House Current Sensor to House Monitor ESP32",
+          "partIds": [
+            "esp32_house_monitor",
+            "acs712_house_sensor"
+          ]
+        },
+        {
+          "id": "wire_4",
+          "title": "Connect Power Cutoff Relay, Buzzer, and LCD to Grid Controller ESP32",
+          "partIds": [
+            "esp32_grid_controller",
+            "relay_power_cut",
+            "buzzer_alarm",
+            "lcd_display"
+          ]
+        },
+        {
+          "id": "wire_5",
+          "title": "Wire AC input terminal to Grid Current Sensor and Neutral AC wire",
+          "partIds": [
+            "ac_input_terminal",
+            "acs712_grid_sensor",
+            "ac_wire_grid_neutral"
+          ]
+        },
+        {
+          "id": "wire_6",
+          "title": "Wire Grid Current Sensor output to Power Cutoff Relay and Bypass Switch",
+          "partIds": [
+            "acs712_grid_sensor",
+            "relay_power_cut",
+            "bypass_switch"
+          ]
+        },
+        {
+          "id": "wire_7",
+          "title": "Wire Power Cutoff Relay to House Current Sensor and then to Authorized AC Bulb",
+          "partIds": [
+            "relay_power_cut",
+            "acs712_house_sensor",
+            "bulb_ac_authorized",
+            "ac_wire_grid_neutral"
+          ]
+        },
+        {
+          "id": "wire_8",
+          "title": "Wire Bypass Switch to Bypass AC Bulb",
+          "partIds": [
+            "bypass_switch",
+            "bulb_ac_bypass",
+            "ac_wire_grid_neutral"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bringup",
+      "subSteps": [
+        {
+          "id": "bringup_1",
+          "title": "Upload firmware to Grid Controller ESP32",
+          "partIds": [
+            "esp32_grid_controller"
+          ]
+        },
+        {
+          "id": "bringup_2",
+          "title": "Upload firmware to House Monitor ESP32",
+          "partIds": [
+            "esp32_house_monitor"
+          ]
+        },
+        {
+          "id": "bringup_3",
+          "title": "Verify I2C communication with LCD Display",
+          "partIds": [
+            "esp32_grid_controller",
+            "lcd_display"
+          ]
+        },
+        {
+          "id": "bringup_4",
+          "title": "Test Power Cutoff Relay and Buzzer functionality",
+          "partIds": [
+            "esp32_grid_controller",
+            "relay_power_cut",
+            "buzzer_alarm"
+          ]
+        },
+        {
+          "id": "bringup_5",
+          "title": "Calibrate and verify Grid and House Current Sensor readings",
+          "partIds": [
+            "esp32_grid_controller",
+            "acs712_grid_sensor",
+            "esp32_house_monitor",
+            "acs712_house_sensor"
+          ]
+        },
+        {
+          "id": "bringup_6",
+          "title": "Test Bypass Switch input detection on Grid Controller",
+          "partIds": [
+            "esp32_grid_controller",
+            "bypass_switch"
+          ]
+        },
+        {
+          "id": "bringup_7",
+          "title": "Perform initial power-up with Authorized and Bypass bulbs, test theft detection and cutoff logic",
+          "partIds": [
+            "bulb_ac_authorized",
+            "bulb_ac_bypass",
+            "relay_power_cut"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "assemble",
+      "subSteps": [
+        {
+          "id": "assemble_1",
+          "title": "Assemble Tower A structure (base plate and vertical supports)",
+          "partIds": [
+            "tower_a_base_plate",
+            "tower_a_vertical_support_front",
+            "tower_a_vertical_support_back",
+            "m3_screws_short",
+            "m3_nuts"
+          ]
+        },
+        {
+          "id": "assemble_2",
+          "title": "Assemble Tower B structure (base plate and vertical supports)",
+          "partIds": [
+            "tower_b_base_plate",
+            "tower_b_vertical_support_front",
+            "tower_b_vertical_support_back",
+            "m3_screws_short",
+            "m3_nuts"
+          ]
+        },
+        {
+          "id": "assemble_3",
+          "title": "Mount all Grid-related components and their mounts to Tower A supports",
+          "partIds": [
+            "tower_a_vertical_support_front",
+            "tower_a_vertical_support_back",
+            "esp32_grid_mount",
+            "acs712_grid_mount",
+            "relay_power_cut_mount",
+            "lcd_display_bezel",
+            "buzzer_alarm_mount",
+            "dc_power_supply_mount",
+            "ac_input_terminal",
+            "m3_screws_short"
+          ]
+        },
+        {
+          "id": "assemble_4",
+          "title": "Mount all House-related components and their mounts to Tower B supports",
+          "partIds": [
+            "tower_b_vertical_support_front",
+            "esp32_house_mount",
+            "acs712_house_mount",
+            "bulb_holder_authorized",
+            "m3_screws_short"
+          ]
+        },
+        {
+          "id": "assemble_5",
+          "title": "Mount the bypass switch mount and bypass bulb holder into the bypass enclosure",
+          "partIds": [
+            "bypass_enclosure",
+            "bypass_switch_mount",
+            "bulb_holder_bypass",
+            "m3_screws_short"
+          ]
+        },
+        {
+          "id": "assemble_6",
+          "title": "Secure all wiring with cable ties, ensuring strain relief and safety for AC lines",
+          "partIds": [
+            "ac_wire_grid_live",
+            "ac_wire_grid_neutral"
+          ]
+        },
+        {
+          "id": "assemble_7",
+          "title": "Screw in Authorized AC Bulb and Bypass AC Bulb",
+          "partIds": [
+            "bulb_holder_authorized",
+            "bulb_ac_authorized",
+            "bulb_holder_bypass",
+            "bulb_ac_bypass"
+          ]
+        },
+        {
+          "id": "assemble_8",
+          "title": "Perform final functional test of the complete system",
+          "partIds": []
+        }
+      ]
+    }
+  ],
+  "projectDescription": "The \"Spark Safe Stream\" system detects power theft using ESP32 microcontrollers and current sensors to compare grid and household consumption in real-time. It features automated power cutoff via a relay, an audible alarm, and cloud logging of events.",
+  "instructionPreamble": {
+    "tools": [
+      "3D printer (PLA and PETG capable)",
+      "M3 hex key / screwdriver set",
+      "Wire strippers",
+      "Crimping tool (optional, for ferrules on AC wires)",
+      "Multimeter",
+      "Small flathead screwdriver (for terminal blocks)",
+      "Computer with Arduino IDE / PlatformIO and USB-C cable"
+    ],
+    "assumptions": [
+      "Basic understanding of mains AC electricity safety precautions",
+      "Familiarity with ESP32 firmware uploading (Arduino IDE or PlatformIO)",
+      "Basic electronics knowledge (e.g., distinguishing VCC, GND, data pins)",
+      "Access to appropriate 3D printing filament (PLA, PETG)"
+    ]
+  },
+  "electricalConnections": [
+    {
+      "type": "power",
+      "label": "ESP32 Grid Power",
+      "source": "dc_power_supply",
+      "target": "esp32_grid_controller",
+      "current": "500mA",
+      "voltage": "5V"
+    },
+    {
+      "type": "power",
+      "label": "ESP32 House Power",
+      "source": "dc_power_supply",
+      "target": "esp32_house_monitor",
+      "current": "500mA",
+      "voltage": "5V"
+    },
+    {
+      "type": "power",
+      "label": "Grid Sensor VCC",
+      "source": "esp32_grid_controller",
+      "target": "acs712_grid_sensor",
+      "current": "50mA",
+      "voltage": "5V"
+    },
+    {
+      "type": "power",
+      "label": "Grid Sensor GND",
+      "source": "esp32_grid_controller",
+      "target": "acs712_grid_sensor",
+      "current": "0mA",
+      "voltage": "0V"
+    },
+    {
+      "type": "data",
+      "label": "Grid Current Signal",
+      "source": "esp32_grid_controller",
+      "target": "acs712_grid_sensor",
+      "protocol": "analog",
+      "sourcePin": "ADC_CH0",
+      "targetPin": "OUT"
+    },
+    {
+      "type": "power",
+      "label": "House Sensor VCC",
+      "source": "esp32_house_monitor",
+      "target": "acs712_house_sensor",
+      "current": "50mA",
+      "voltage": "5V"
+    },
+    {
+      "type": "power",
+      "label": "House Sensor GND",
+      "source": "esp32_house_monitor",
+      "target": "acs712_house_sensor",
+      "current": "0mA",
+      "voltage": "0V"
+    },
+    {
+      "type": "data",
+      "label": "House Current Signal",
+      "source": "esp32_house_monitor",
+      "target": "acs712_house_sensor",
+      "protocol": "analog",
+      "sourcePin": "ADC_CH0",
+      "targetPin": "OUT"
+    },
+    {
+      "type": "power",
+      "label": "Relay VCC",
+      "source": "esp32_grid_controller",
+      "target": "relay_power_cut",
+      "current": "100mA",
+      "voltage": "5V"
+    },
+    {
+      "type": "power",
+      "label": "Relay GND",
+      "source": "esp32_grid_controller",
+      "target": "relay_power_cut",
+      "current": "0mA",
+      "voltage": "0V"
+    },
+    {
+      "type": "data",
+      "label": "Relay Control",
+      "source": "esp32_grid_controller",
+      "target": "relay_power_cut",
+      "protocol": "gpio",
+      "sourcePin": "GPIO2",
+      "targetPin": "IN"
+    },
+    {
+      "type": "power",
+      "label": "Buzzer VCC",
+      "source": "esp32_grid_controller",
+      "target": "buzzer_alarm",
+      "current": "20mA",
+      "voltage": "5V"
+    },
+    {
+      "type": "power",
+      "label": "Buzzer GND",
+      "source": "esp32_grid_controller",
+      "target": "buzzer_alarm",
+      "current": "0mA",
+      "voltage": "0V"
+    },
+    {
+      "type": "data",
+      "label": "Buzzer Control",
+      "source": "esp32_grid_controller",
+      "target": "buzzer_alarm",
+      "protocol": "gpio",
+      "sourcePin": "GPIO4",
+      "targetPin": "IO"
+    },
+    {
+      "type": "power",
+      "label": "LCD VCC",
+      "source": "esp32_grid_controller",
+      "target": "lcd_display",
+      "current": "100mA",
+      "voltage": "5V"
+    },
+    {
+      "type": "power",
+      "label": "LCD GND",
+      "source": "esp32_grid_controller",
+      "target": "lcd_display",
+      "current": "0mA",
+      "voltage": "0V"
+    },
+    {
+      "type": "data",
+      "label": "LCD I2C Data",
+      "source": "esp32_grid_controller",
+      "target": "lcd_display",
+      "protocol": "i2c",
+      "sourcePin": "SDA",
+      "targetPin": "SDA"
+    },
+    {
+      "type": "data",
+      "label": "LCD I2C Clock",
+      "source": "esp32_grid_controller",
+      "target": "lcd_display",
+      "protocol": "i2c",
+      "sourcePin": "SCL",
+      "targetPin": "SCL"
+    },
+    {
+      "source": "ac_input_terminal",
+      "target": "acs712_grid_sensor",
+      "type": "power",
+      "label": "AC Live to Grid Sensor",
+      "sourcePin": "L_IN",
+      "targetPin": "Current_Path_In",
+      "voltage": "120-240VAC"
+    },
+    {
+      "source": "ac_input_terminal",
+      "target": "ac_wire_grid_neutral",
+      "type": "power",
+      "label": "AC Neutral from Grid",
+      "sourcePin": "N_IN",
+      "targetPin": "N",
+      "voltage": "120-240VAC"
+    },
+    {
+      "source": "acs712_grid_sensor",
+      "target": "relay_power_cut",
+      "type": "power",
+      "label": "Grid Sensor Live Out to Relay (Normal Path)",
+      "sourcePin": "Current_Path_Out",
+      "targetPin": "NC",
+      "voltage": "120-240VAC"
+    },
+    {
+      "source": "acs712_grid_sensor",
+      "target": "bypass_switch",
+      "type": "power",
+      "label": "Grid Sensor Live Out to Bypass Switch (Theft Path)",
+      "sourcePin": "Current_Path_Out",
+      "targetPin": "COM",
+      "voltage": "120-240VAC"
+    },
+    {
+      "source": "relay_power_cut",
+      "target": "acs712_house_sensor",
+      "type": "power",
+      "label": "Relay Out to House Sensor",
+      "sourcePin": "NO",
+      "targetPin": "Current_Path_In",
+      "voltage": "120-240VAC"
+    },
+    {
+      "source": "acs712_house_sensor",
+      "target": "bulb_ac_authorized",
+      "type": "power",
+      "label": "House Sensor Live Out to Authorized Bulb",
+      "sourcePin": "Current_Path_Out",
+      "targetPin": "L",
+      "voltage": "120-240VAC"
+    },
+    {
+      "source": "bulb_ac_authorized",
+      "target": "ac_wire_grid_neutral",
+      "type": "power",
+      "label": "Authorized Bulb Neutral to Grid Neutral",
+      "sourcePin": "N",
+      "targetPin": "N",
+      "voltage": "120-240VAC"
+    },
+    {
+      "source": "bypass_switch",
+      "target": "bulb_ac_bypass",
+      "type": "power",
+      "label": "Bypass Switch Out to Bypass Bulb",
+      "sourcePin": "NO",
+      "targetPin": "L",
+      "voltage": "120-240VAC"
+    },
+    {
+      "source": "bulb_ac_bypass",
+      "target": "ac_wire_grid_neutral",
+      "type": "power",
+      "label": "Bypass Bulb Neutral to Grid Neutral",
+      "sourcePin": "N",
+      "targetPin": "N",
+      "voltage": "120-240VAC"
+    }
+  ],
+  "mechanicalConnections": [
+    {
+      "label": "M3 screws and nuts",
+      "source": "tower_a_base_plate",
+      "target": "tower_a_vertical_support_front"
+    },
+    {
+      "label": "M3 screws and nuts",
+      "source": "tower_a_base_plate",
+      "target": "tower_a_vertical_support_back"
+    },
+    {
+      "label": "M3 screws and nuts",
+      "source": "tower_b_base_plate",
+      "target": "tower_b_vertical_support_front"
+    },
+    {
+      "label": "M3 screws and nuts",
+      "source": "tower_b_base_plate",
+      "target": "tower_b_vertical_support_back"
+    },
+    {
+      "label": "M3 screws",
+      "source": "tower_a_vertical_support_front",
+      "target": "esp32_grid_mount"
+    },
+    {
+      "label": "M3 screws",
+      "source": "tower_a_vertical_support_front",
+      "target": "acs712_grid_mount"
+    },
+    {
+      "label": "M3 screws",
+      "source": "tower_a_vertical_support_front",
+      "target": "relay_power_cut_mount"
+    },
+    {
+      "label": "M3 screws",
+      "source": "tower_a_vertical_support_front",
+      "target": "lcd_display_bezel"
+    },
+    {
+      "label": "M3 screws",
+      "source": "tower_a_vertical_support_front",
+      "target": "buzzer_alarm_mount"
+    },
+    {
+      "label": "M3 screws",
+      "source": "tower_a_vertical_support_back",
+      "target": "dc_power_supply_mount"
+    },
+    {
+      "label": "M3 screws",
+      "source": "tower_b_vertical_support_front",
+      "target": "esp32_house_mount"
+    },
+    {
+      "label": "M3 screws",
+      "source": "tower_b_vertical_support_front",
+      "target": "acs712_house_mount"
+    },
+    {
+      "label": "M3 screws",
+      "source": "tower_b_vertical_support_front",
+      "target": "bulb_holder_authorized"
+    },
+    {
+      "label": "M3 screws",
+      "source": "bypass_enclosure",
+      "target": "bypass_switch_mount"
+    },
+    {
+      "label": "M3 screws",
+      "source": "bypass_enclosure",
+      "target": "bulb_holder_bypass"
+    },
+    {
+      "label": "mount",
+      "source": "esp32_grid_mount",
+      "target": "esp32_grid_controller"
+    },
+    {
+      "label": "mount",
+      "source": "esp32_house_mount",
+      "target": "esp32_house_monitor"
+    },
+    {
+      "label": "mount",
+      "source": "acs712_grid_mount",
+      "target": "acs712_grid_sensor"
+    },
+    {
+      "label": "mount",
+      "source": "acs712_house_mount",
+      "target": "acs712_house_sensor"
+    },
+    {
+      "label": "mount",
+      "source": "relay_power_cut_mount",
+      "target": "relay_power_cut"
+    },
+    {
+      "label": "mount",
+      "source": "lcd_display_bezel",
+      "target": "lcd_display"
+    },
+    {
+      "label": "mount",
+      "source": "buzzer_alarm_mount",
+      "target": "buzzer_alarm"
+    },
+    {
+      "label": "mount",
+      "source": "dc_power_supply_mount",
+      "target": "dc_power_supply"
+    },
+    {
+      "label": "mount",
+      "source": "bypass_switch_mount",
+      "target": "bypass_switch"
+    },
+    {
+      "source": "tower_a_base_plate",
+      "target": "ac_input_terminal",
+      "label": "M3 screws"
+    },
+    {
+      "source": "tower_b_vertical_support_front",
+      "target": "bulb_holder_authorized",
+      "label": "M3 screws"
+    },
+    {
+      "source": "bypass_enclosure",
+      "target": "bulb_holder_bypass",
+      "label": "M3 screws"
+    },
+    {
+      "source": "bulb_holder_authorized",
+      "target": "bulb_ac_authorized",
+      "label": "screw in"
+    },
+    {
+      "source": "bulb_holder_bypass",
+      "target": "bulb_ac_bypass",
+      "label": "screw in"
+    }
+  ],
+  "projectId": "a7009d44-c6b0-46d2-8454-c32d3c5378c0"
+}

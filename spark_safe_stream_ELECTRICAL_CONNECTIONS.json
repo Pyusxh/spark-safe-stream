@@ -1,0 +1,233 @@
+[
+  {
+    "type": "power",
+    "label": "ESP32 Grid Power",
+    "source": "dc_power_supply",
+    "target": "esp32_grid_controller",
+    "current": "500mA",
+    "voltage": "5V"
+  },
+  {
+    "type": "power",
+    "label": "ESP32 House Power",
+    "source": "dc_power_supply",
+    "target": "esp32_house_monitor",
+    "current": "500mA",
+    "voltage": "5V"
+  },
+  {
+    "type": "power",
+    "label": "Grid Sensor VCC",
+    "source": "esp32_grid_controller",
+    "target": "acs712_grid_sensor",
+    "current": "50mA",
+    "voltage": "5V"
+  },
+  {
+    "type": "power",
+    "label": "Grid Sensor GND",
+    "source": "esp32_grid_controller",
+    "target": "acs712_grid_sensor",
+    "current": "0mA",
+    "voltage": "0V"
+  },
+  {
+    "type": "data",
+    "label": "Grid Current Signal",
+    "source": "esp32_grid_controller",
+    "target": "acs712_grid_sensor",
+    "protocol": "analog",
+    "sourcePin": "ADC_CH0",
+    "targetPin": "OUT"
+  },
+  {
+    "type": "power",
+    "label": "House Sensor VCC",
+    "source": "esp32_house_monitor",
+    "target": "acs712_house_sensor",
+    "current": "50mA",
+    "voltage": "5V"
+  },
+  {
+    "type": "power",
+    "label": "House Sensor GND",
+    "source": "esp32_house_monitor",
+    "target": "acs712_house_sensor",
+    "current": "0mA",
+    "voltage": "0V"
+  },
+  {
+    "type": "data",
+    "label": "House Current Signal",
+    "source": "esp32_house_monitor",
+    "target": "acs712_house_sensor",
+    "protocol": "analog",
+    "sourcePin": "ADC_CH0",
+    "targetPin": "OUT"
+  },
+  {
+    "type": "power",
+    "label": "Relay VCC",
+    "source": "esp32_grid_controller",
+    "target": "relay_power_cut",
+    "current": "100mA",
+    "voltage": "5V"
+  },
+  {
+    "type": "power",
+    "label": "Relay GND",
+    "source": "esp32_grid_controller",
+    "target": "relay_power_cut",
+    "current": "0mA",
+    "voltage": "0V"
+  },
+  {
+    "type": "data",
+    "label": "Relay Control",
+    "source": "esp32_grid_controller",
+    "target": "relay_power_cut",
+    "protocol": "gpio",
+    "sourcePin": "GPIO2",
+    "targetPin": "IN"
+  },
+  {
+    "type": "power",
+    "label": "Buzzer VCC",
+    "source": "esp32_grid_controller",
+    "target": "buzzer_alarm",
+    "current": "20mA",
+    "voltage": "5V"
+  },
+  {
+    "type": "power",
+    "label": "Buzzer GND",
+    "source": "esp32_grid_controller",
+    "target": "buzzer_alarm",
+    "current": "0mA",
+    "voltage": "0V"
+  },
+  {
+    "type": "data",
+    "label": "Buzzer Control",
+    "source": "esp32_grid_controller",
+    "target": "buzzer_alarm",
+    "protocol": "gpio",
+    "sourcePin": "GPIO4",
+    "targetPin": "IO"
+  },
+  {
+    "type": "power",
+    "label": "LCD VCC",
+    "source": "esp32_grid_controller",
+    "target": "lcd_display",
+    "current": "100mA",
+    "voltage": "5V"
+  },
+  {
+    "type": "power",
+    "label": "LCD GND",
+    "source": "esp32_grid_controller",
+    "target": "lcd_display",
+    "current": "0mA",
+    "voltage": "0V"
+  },
+  {
+    "type": "data",
+    "label": "LCD I2C Data",
+    "source": "esp32_grid_controller",
+    "target": "lcd_display",
+    "protocol": "i2c",
+    "sourcePin": "SDA",
+    "targetPin": "SDA"
+  },
+  {
+    "type": "data",
+    "label": "LCD I2C Clock",
+    "source": "esp32_grid_controller",
+    "target": "lcd_display",
+    "protocol": "i2c",
+    "sourcePin": "SCL",
+    "targetPin": "SCL"
+  },
+  {
+    "source": "ac_input_terminal",
+    "target": "acs712_grid_sensor",
+    "type": "power",
+    "label": "AC Live to Grid Sensor",
+    "sourcePin": "L_IN",
+    "targetPin": "Current_Path_In",
+    "voltage": "120-240VAC"
+  },
+  {
+    "source": "ac_input_terminal",
+    "target": "ac_wire_grid_neutral",
+    "type": "power",
+    "label": "AC Neutral from Grid",
+    "sourcePin": "N_IN",
+    "targetPin": "N",
+    "voltage": "120-240VAC"
+  },
+  {
+    "source": "acs712_grid_sensor",
+    "target": "relay_power_cut",
+    "type": "power",
+    "label": "Grid Sensor Live Out to Relay (Normal Path)",
+    "sourcePin": "Current_Path_Out",
+    "targetPin": "NC",
+    "voltage": "120-240VAC"
+  },
+  {
+    "source": "acs712_grid_sensor",
+    "target": "bypass_switch",
+    "type": "power",
+    "label": "Grid Sensor Live Out to Bypass Switch (Theft Path)",
+    "sourcePin": "Current_Path_Out",
+    "targetPin": "COM",
+    "voltage": "120-240VAC"
+  },
+  {
+    "source": "relay_power_cut",
+    "target": "acs712_house_sensor",
+    "type": "power",
+    "label": "Relay Out to House Sensor",
+    "sourcePin": "NO",
+    "targetPin": "Current_Path_In",
+    "voltage": "120-240VAC"
+  },
+  {
+    "source": "acs712_house_sensor",
+    "target": "bulb_ac_authorized",
+    "type": "power",
+    "label": "House Sensor Live Out to Authorized Bulb",
+    "sourcePin": "Current_Path_Out",
+    "targetPin": "L",
+    "voltage": "120-240VAC"
+  },
+  {
+    "source": "bulb_ac_authorized",
+    "target": "ac_wire_grid_neutral",
+    "type": "power",
+    "label": "Authorized Bulb Neutral to Grid Neutral",
+    "sourcePin": "N",
+    "targetPin": "N",
+    "voltage": "120-240VAC"
+  },
+  {
+    "source": "bypass_switch",
+    "target": "bulb_ac_bypass",
+    "type": "power",
+    "label": "Bypass Switch Out to Bypass Bulb",
+    "sourcePin": "NO",
+    "targetPin": "L",
+    "voltage": "120-240VAC"
+  },
+  {
+    "source": "bulb_ac_bypass",
+    "target": "ac_wire_grid_neutral",
+    "type": "power",
+    "label": "Bypass Bulb Neutral to Grid Neutral",
+    "sourcePin": "N",
+    "targetPin": "N",
+    "voltage": "120-240VAC"
+  }
+]
